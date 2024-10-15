@@ -1,6 +1,6 @@
 if [ $# -ne 2 ]
 then
-    echo "Incorrect test usage. Expected <exec file with args> <line with output message>"
+    echo "Incorrect test usage. Expected <exec file with args> <line with console output message>"
     exit 1
 fi
 

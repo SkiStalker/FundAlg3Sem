@@ -1,11 +1,16 @@
 if [ $# -ne 5 ]
 then
-    echo "Incorrect test usage. Expected <exec file with args> <return code> <line with output> <output file> <file with expected output data>"
+    echo "Incorrect test usage. Expected <exec file with args> <return code> <file with expected console output> <output file> <file with expected output data>"
     exit 1
 fi
 
+if [ ! -f $3 ]; then
+    echo "Console output file not found"
+    exit 4
+fi
+
 if [ ! -f $5 ]; then
-    echo "Output file with expected data not found"
+    echo "File with expected output data not found"
     exit 3
 fi
 
@@ -20,14 +25,14 @@ res=$($(pwd)/$1)
 
 ret_code=$?
 
-if [[ $(cat $3) = $res && $ret_code = $ret && $(cat $4) = $(cat $5) ]]
+if [[ "$(cat $3)" = "$res" && $ret_code = $ret && $(cat $4) = $(cat $5) ]]
 then
     exit 0
 else
     echo "Passed args:"
     echo $*
-    echo $res > ./tmp.txt
-    echo "Incorrect answer: expected return code=\""$(ret)"\", received=\""$(ret_code)"\""
+    echo "$res" > ./tmp.txt
+    echo "Incorrect answer: expected return code=\""$ret"\", received=\""$ret_code"\""
     echo "Output difference:"
     echo $(diff $3 ./tmp.txt)
     echo "Result file difference:"
