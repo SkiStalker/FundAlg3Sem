@@ -1,0 +1,8 @@
+Results for the quadratic equation: 
+- For A=2.00, B=3.00, C=4.00: No valid solutions
+- For A=2.00, B=4.00, C=3.00: No valid solutions
+- For A=3.00, B=2.00, C=4.00: No valid solutions 
+- For A=3.00, B=4.00, C=2.00: No valid solutions 
+- For A=4.00, B=2.00, C=3.00: No valid solutions 
+- For A=4.00, B=3.00, C=2.00: No valid solutions
+
