@@ -2,15 +2,15 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 
 SOURCES=lb1task3.c # Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
-TEST_TEMPLATES_DIR=/mnt/c/Users/Вероника/Desktop/lb1/test_templates
+TEST_TEMPLATES_DIR=/mnt/c/Users/Вероника/Documents/GitHub/FundAlg3Sem/test_templates
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
-SUCCESS_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_cmd.txt
-SUCCESS_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/success_ofile.txt
-FAILED_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/failed_cmd.txt
-FAILED_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/failed_ofile.txt
-SUCCESS_RFILE_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_rfile_cmd.txt
-SUCCESS_RFILE_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/success_rfile_ofile.txt
+SUCCESS_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_cmd
+SUCCESS_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/success_ofile
+FAILED_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/failed_cmd
+FAILED_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/failed_ofile
+SUCCESS_RFILE_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_rfile_cmd
+SUCCESS_RFILE_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/success_rfile_ofile
 
 
 .PHONY: all test clean
@@ -56,6 +56,9 @@ clean: # Чтобы удалить все исполняемые файлы на
 # Символ @ необходимо писать для подавления лишнего вывода в консоль при выполнении make файла.
 #
 
+test_task_1: test_command_args_1 test_command_args_2 test_command_args_3 test_command_args_4 test_command_args_5 test_command_args_6 test_command_args_7 test_command_args_8
+
+test_task_2: test_command_success_1 test_command_success_2 
 test_command_args_1:
 	@$(FAILED_CMD) "lb1task3.a" 5 "Not enough arguments"
 	@echo "TEST 1: No arguments provided - Expected failure. Test PASSED for lb1task3.c"
@@ -101,4 +104,4 @@ test_command_success_2:
 	@echo "TEST 11 PASSED: we enter the number at which it works"
 
 
-test: test_command_args_1 test_command_args_2 test_command_success_ofile_1 test_command_args_3 test_command_args_4 test_command_args_5 test_command_args_6 test_command_success_1 test_command_args_7 test_command_args_8 test_command_success_2# Здесь перечисляются все написанные вами тесты. Запуск тестов производится по команде make test
+test: test_task_1 test_task_2 test_command_success_ofile_1
