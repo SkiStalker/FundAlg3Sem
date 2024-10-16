@@ -150,33 +150,34 @@ ErrorCode flagA(const char* input_file, const char* output_file) {
 
 int main(int argc, char* argv[]) {
     if (argc < 4) {
-        fprintf(stderr, "Error: Invalid number of arguments.\n");
+        printf("Error: Invalid number of arguments.\n");
         return ARGUMENT_ERROR;
     }
 
     ErrorCode result;
     if (argv[1][0] == '-' && strcmp(argv[1], "-r") == 0) {
         if (argc != 5) {
-            fprintf(stderr, "Error: Invalid number of arguments for -r flag.\n");
+            printf("Error: Invalid number of arguments for - r flag.\n");
             return ARGUMENT_ERROR;
         }
         result = flagR(argv[2], argv[3], argv[4]);
     }
     else if (argv[1][0] == '-' && strcmp(argv[1], "-a") == 0) {
         if (argc != 4) {
-            fprintf(stderr, "Error: Invalid number of arguments for -a flag.\n");
+            printf("Error: Invalid number of arguments for -a flag.\n");
             return ARGUMENT_ERROR;
         }
         result = flagA(argv[2], argv[3]);
     }
     else {
-        fprintf(stderr, "Error: Invalid flag.\n");
+        printf("Error: Invalid flag.\n");
         return INVALID_FLAG;
     }
 
     if (result != SUCCESS) {
         if (result == FILE_ERROR) {
-            fprintf(stderr, "Error: One or more files could not be opened.\n");
+            printf("Error: One or more files could not be opened.\n");
+            return FILE_ERROR;
         }
         return result;
     }

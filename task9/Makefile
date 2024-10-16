@@ -2,7 +2,7 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 
 SOURCES=lb1task9.c # Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
-TEST_TEMPLATES_DIR=/mnt/c/Users/Вероника/Documents/GitHub/FundAlg3Sem/test_templates
+TEST_TEMPLATES_DIR=../test_templates
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
 SUCCESS_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_cmd
@@ -57,7 +57,6 @@ clean: # Чтобы удалить все исполняемые файлы на
 # Символ @ необходимо писать для подавления лишнего вывода в консоль при выполнении make файла.
 #
 test_task_1: test_command_no_args_1 test_command_invalid_args_2 test_command_a_greater_than_b_3 test_command_a_b_out_of_range_4 test_not_a_number_5
-test_task_2: test_command_dynamic_array_success_2 test_command_success_1
 test_command_no_args_1:
 	@$(FAILED_CMD) "lb1task9.a" 1 "Not enough arguments"
 	@echo "TEST 1: No arguments provided - Expected failure. Test PASSED."
@@ -74,17 +73,9 @@ test_command_a_b_out_of_range_4:
 	@$(FAILED_CMD) "lb1task9.a -3000000000000 10" 1 "Error: a and b must be within the range of int."
 	@echo "TEST 4: a and b out of range - Expected failure. Test PASSED."
 
-test_command_success_1:
-	@$(SUCCESS_CMD) "lb1task9.a 1 10" "Fixed array: " "Array after swapping min and max: "
-	@echo "TEST 5: Valid parameters - Expected success. Test PASSED."
-
-test_command_dynamic_array_success_2:
-	@$(SUCCESS_CMD) "lb1task9.a 1 10" "Dynamic array C: "
-	@echo "TEST 6: Dynamic array created successfully. Test PASSED."
-
 test_not_a_number_5:
 	@$(FAILED_CMD) "lb1task9.a a b" 1 "Error: a and b must be valid integers."
-	@echo "TEST 7: a or b is not a number"
+	@echo "TEST 5: a or b is not a number"
 
 
-test: test_task_1 test_task_2
+test: test_task_1

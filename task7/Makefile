@@ -1,7 +1,7 @@
 CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 
-SOURCES=lb1task4.c # Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
+SOURCES=lb1task7.c # Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
 TEST_TEMPLATES_DIR=../test_templates
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
@@ -56,36 +56,35 @@ clean: # Чтобы удалить все исполняемые файлы на
 # Ниже приведены примеры тестов. В выводе после теста должна быть краткая информация о том что это был за тест. "TEST N PASSED" это не информативно и принято не будет.
 # Символ @ необходимо писать для подавления лишнего вывода в консоль при выполнении make файла.
 #
-test_task_1: test_command_no_args_1 test_command_unknown_flag_2 test_command_invalid_input_file_4
-test_task_2: test_success_task_1 test_success_task_2 test_success_task_3 test_success_task_4
+test_task_1: test_command_no_args_1 test_command_args_r_invalid_2 test_command_args_a_invalid_3 test_command_invalid_flag_4 test_command_file_error_5
+test_task_2: test_command_success_r_1 test_command_success_a_2
 
 test_command_no_args_1:
-	@$(FAILED_CMD) "lb1task4.a" 3 "Error: Invalid arguments provided."
-	@echo "TEST 1: No arguments provided - Expected failure. Test PASSED for lb1task4.a"
+	@$(FAILED_CMD) "lb1task7.a" 2 "Error: Invalid number of arguments."
+	@echo "TEST 1: No arguments provided - Expected failure. Test PASSED."
 
-test_command_unknown_flag_2:
-	@$(FAILED_CMD) "lb1task4.a -x input.txt" 4 "Error: Unknown flag provided."
-	@echo "TEST 2: Unknown flag provided - Expected failure. Test PASSED for lb1task4.a"
+test_command_args_r_invalid_2:
+	@$(FAILED_CMD) "lb1task7.a -r a ee" 2 "Error: Invalid number of arguments for - r flag."
+	@echo "TEST 2 Invalid parameters for flag -r - Expected failure. Test PASSED."
 
-test_success_task_1:
-	@$(SUCCESS_RFILE_CMD) "lb1task4.a -ni ./input1.txt ./out_input1.txt" "" "./out_input1.txt" "a_input1.txt"
-	@echo "TEST 3: The operation for the -i flag was successful. Test PASSED."
+test_command_success_r_1:
+	@$(SUCCESS_RFILE_CMD) "lb1task7.a -r ./f1.txt ./f2.txt ./out1.txt" "" "./out1.txt" "a_out1.txt"
+	@echo "TEST 3: The operation for the -r flag was successful. Test PASSED."
 
-test_success_task_2:
-	@$(SUCCESS_RFILE_CMD) "lb1task4.a -ns ./input2.txt ./out_input2.txt" "" "./out_input2.txt" "a_input2.txt"
-	@echo "TTEST 4: The operation for the -s flag was successful. Test PASSED."
+test_command_args_a_invalid_3:
+	@$(FAILED_CMD) "lb1task7.a -a aa" 2 "Error: Invalid number of arguments."
+	@echo "TEST 4: Invalid parameters for flag -a - Expected failure. Test PASSED for lb1task7.c"
 
-test_success_task_3:
-	@$(SUCCESS_RFILE_CMD) "lb1task4.a -na ./input3.txt ./out_input3.txt" "" "./out_input3.txt" "a_input3.txt"
+test_command_success_a_2:
+	@$(SUCCESS_RFILE_CMD) "lb1task7.a -a ./f3.txt ./out2.txt" "" "./out2.txt" "a_out2.txt"
 	@echo "TEST 5: The operation for the -a flag was successful. Test PASSED."
 
-test_success_task_4:
-	@$(SUCCESS_RFILE_CMD) "lb1task4.a -nd ./input.txt ./out_input.txt" "" "./out_input.txt" "a_input.txt"
-	@echo "TEST 6: The operation for the -d flag was successful. Test PASSED."
+test_command_invalid_flag_4:
+	@$(FAILED_CMD) "lb1task7.a -x 3 a" 4 "Error: Invalid flag."
+	@echo "TEST 6: Invalid flag provided - Expected failure. Test PASSED."
 
-test_command_invalid_input_file_4:
-	@$(FAILED_CMD) "lb1task4.a -i invalid.txt" 1 "Error: Could not open input file."
-	@echo "TEST 7: Invalid input file - Expected failure. Test PASSED."
-
+test_command_file_error_5:
+	@$(FAILED_CMD) "lb1task7.a -a non_file.txt output.txt" 1 "Error: One or more files could not be opened."
+	@echo "TEST 7: File opening error - Expected failure. Test PASSED for lb1task7.c"
 
 test: test_task_1 test_task_2

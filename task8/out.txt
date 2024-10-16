@@ -1,0 +1,7 @@
+1010 in base 2 is 10
+12 in base 3 is 5
+x1F in base 34 is 38197
+b1101 in base 12 is 229969
+A in base 11 is 10
+z in base 36 is 35
+100 in base 2 is 4

@@ -189,7 +189,16 @@ int main(int argc, char* argv[]) {
         }
 
         ErrorCode result = process_file(input_path, flag[1 + (flag[1] == 'n')], &output_buffer, &output_size);
-
+        if (result == SUCCESS) {
+            FILE* outfile = fopen(output_path, "w");
+            if (!outfile) {
+                printf("Error: Could not open output file.\n");
+                free(output_buffer);
+                return FILE_OPEN_ERROR;
+            }
+            fwrite(output_buffer, 1, output_size, outfile);
+            fclose(outfile);
+        }
         if (result != SUCCESS) {
             switch (result) {
             case UNKNOWN_FLAG:
@@ -204,14 +213,11 @@ int main(int argc, char* argv[]) {
                 printf("Error: Memory allocation failed.\n");
                 return MEMORY_ALLOCATION_ERROR;
                 break;
-                // Добавьте дополнительные случаи для других ошибок, если необходимо
             default:
                 printf("Error: %d occurred during processing.\n", result);
                 break;
             }
         }
-
-
         free(output_buffer);
         if (flag[1] != 'n') {
             free((void*)output_path);
