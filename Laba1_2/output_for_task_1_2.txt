@@ -1,0 +1,20 @@
+Calculation using limits
+e = 2.706756
+pi = 3.150331
+ln2 = 0.697974
+sqrt2 = 1.414199
+gamma = 0.577277
+
+Calculation using rows
+e = 2.718254
+pi = 3.141793
+ln2 = 0.693097
+sqrt2 = 1.414094
+gamma = 0.565974
+
+Calculation using equations
+e = 2.718262
+pi = 3.132763
+ln2 = 0.693115
+sqrt2 = 1.414185
+gamma = 0.585854
