@@ -1,0 +1,2 @@
+Wrong borders of the array! 'A' must be less than 'B'!
+
