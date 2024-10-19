@@ -9,8 +9,8 @@ typedef enum {
 } ErrorCode;
 
 
-ErrorCode geometric_mean(int count, double* result, int num_count, ...) {
-    if (count <= 0 || num_count <= 0) {
+ErrorCode geometric_mean(double* result, int num_count, ...) {
+    if (num_count <= 0) {
         return ERROR_INVALID_ARGUMENTS;
     }
 
@@ -52,7 +52,7 @@ double power(double base, int exponent) {
 int main() {
     
     double mean;
-    ErrorCode result_g = geometric_mean(1, &mean, 3, 2.0, 8.0, 4.0);
+    ErrorCode result_g = geometric_mean(& mean, 3, 2.0, 8.0, 4.0);
     if (result_g == SUCCESS) {
         printf("Geometric Mean: %f\n", mean);
     }
