@@ -1,0 +1,6 @@
+ERROR: No real roots for coefficients 5.000000, 3.000000, 2.000000
+ERROR: No real roots for coefficients 5.000000, 2.000000, 3.000000
+x1 = -0.666667, x2 = -1.000000
+ERROR: No real roots for coefficients 3.000000, 2.000000, 5.000000
+x1 = -1.000000, x2 = -1.500000
+ERROR: No real roots for coefficients 2.000000, 3.000000, 5.000000

@@ -1,0 +1,21 @@
+Using epsilon >> 0.001000
+
+Calculating limit for e: 2.71828047
+Calculating series for e: 2.71805556
+Calculating equation for e: 2.71777344
+
+Calculating limit for pi: 3.16879107
+Calculating series for pi: 3.14209240
+Calculating eqaution for pi: 3.14160156
+
+Calculating limit for ln2: 0.70747218
+Calculating series for ln2: 0.69264743
+Calculating eqaution for ln2: 0.69238281
+
+Calculating limit for sqrt2: 1.41441872
+Calculating series for sqrt2: 1.41325660
+Calculating eqaution for sqrt2: 1.41503906
+
+Calculating limits for gamma: 0.57089721
+Calculating series for gamma: 0.57521550
+Calculating eqaution for gamma: 0.57128581
