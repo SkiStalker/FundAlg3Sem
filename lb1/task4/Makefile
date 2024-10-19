@@ -61,11 +61,11 @@ test_task_2: test_success_task_1 test_success_task_2 test_success_task_3 test_su
 
 test_command_no_args_1:
 	@$(FAILED_CMD) "lb1task4.a" 3 "Error: Invalid arguments provided."
-	@echo "TEST 1: No arguments provided - Expected failure. Test PASSED for lb1task4.a"
+	@echo "TEST 1: No arguments provided - Expected failure. Test PASSED."
 
 test_command_unknown_flag_2:
 	@$(FAILED_CMD) "lb1task4.a -x input.txt" 4 "Error: Unknown flag provided."
-	@echo "TEST 2: Unknown flag provided - Expected failure. Test PASSED for lb1task4.a"
+	@echo "TEST 2: Unknown flag provided - Expected failure. Test PASSED."
 
 test_success_task_1:
 	@$(SUCCESS_RFILE_CMD) "lb1task4.a -ni ./input1.txt ./out_input1.txt" "" "./out_input1.txt" "a_input1.txt"

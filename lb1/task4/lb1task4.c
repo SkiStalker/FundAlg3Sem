@@ -218,6 +218,7 @@ int main(int argc, char* argv[]) {
                 break;
             }
         }
+
         free(output_buffer);
         if (flag[1] != 'n') {
             free((void*)output_path);
