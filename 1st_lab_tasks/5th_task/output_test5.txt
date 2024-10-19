@@ -1,0 +1,4 @@
+The result of sum A is: 1.221400
+The result of sum B is: 0.980067
+The result of sum C is: 1.193710
+The result of sum D is: -0.019600
