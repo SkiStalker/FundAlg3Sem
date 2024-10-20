@@ -1,0 +1,4 @@
+Answer ====> 2.71825396825396836675
+Answer ====> 0.54030257936507930516
+The function diverges.
+The function diverges.
