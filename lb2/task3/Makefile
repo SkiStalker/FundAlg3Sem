@@ -2,7 +2,7 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 
 SOURCES=lb2task3.c # Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
-TEST_TEMPLATES_DIR=/mnt/c/Users/Вероника/Documents/GitHub/FundAlg3Sem/test_templates
+TEST_TEMPLATES_DIR=../test_templates
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
 SUCCESS_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_cmd
