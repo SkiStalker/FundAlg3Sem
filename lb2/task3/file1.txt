@@ -1,0 +1,3 @@
+Hello, this is a test file.
+Searching for a specific substring.
+This line contains the substring.

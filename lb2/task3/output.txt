@@ -1,0 +1,3 @@
+File: ./file1.txt, Line: 2, Column: 26
+File: ./file1.txt, Line: 3, Column: 24
+File: ./file2.txt, Line: 1, Column: 26
