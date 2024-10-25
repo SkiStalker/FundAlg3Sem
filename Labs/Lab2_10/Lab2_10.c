@@ -38,7 +38,7 @@ int** PythagorTriangle(int num) {
     return coefs_str_num;
 }
 
-int COEFS(double eps, double a, double* res_coefs, int n, ...) {
+int COEFS(double a, double* res_coefs, int n, ...) {
     va_list args;
     va_start (args, n);
     double* tek_coefs = (double*)malloc(sizeof(double) * (n + 1));
@@ -63,7 +63,7 @@ int COEFS(double eps, double a, double* res_coefs, int n, ...) {
         }
     }
     for (int i = 0; i <= n; i++) {
-        printf("%lf  ", res_coefs[i]);
+        printf("%lf ", res_coefs[i]);
     }
     va_end(args);
     free(PythagorTriangle_tek);
@@ -78,6 +78,6 @@ int main() {
         printf("malloc failed\n");
         return MALLOC_FAILED;
     }
-    ValidateCode(COEFS(0.0001, 2.0, res_coefs, n, 4.0, 3.0, 2.0, 1.0));
+    ValidateCode(COEFS(2.0, res_coefs, n, 4.0, 3.0, 2.0, 1.0));
     free(res_coefs);
 }
