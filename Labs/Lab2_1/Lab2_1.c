@@ -43,15 +43,6 @@ int my_strcmp(const char *str1, const char *str2) {
     return 1;
 }
 
-int find_flag(const char* arg, const char** flags) {
-    for (int i = 0; i < 5; ++i) {
-        if (my_strcmp(arg, flags[i])) {
-            return i;
-        }
-    }
-    return -1;
-}
-
 int strLength(const char *str) {
     int len = 0;
     while (*str != '\0') {
@@ -182,14 +173,21 @@ char *concat(int argc, char *argv[]) {
     return result;
 }
 
+int find_flag(const char* arg, char** flags) {
+    for (int i = 0; i < 5; ++i) {
+        if (my_strcmp(arg, flags[i])) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main(int argc, char *argv[]) {
     char* flags[] = { "-l", "-r", "-u", "-n", "-c" };
-
     if (argc <= 2) {
         printf("Wrong number of arguments\n");
         return -1;
     }
-
     const int ret = find_flag(argv[1], flags);
     if (ret == -1) {
         printf("Flag %s is not supported.\n", argv[1]);
