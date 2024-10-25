@@ -2,9 +2,9 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 CLIBS= -lm
 
-SOURCES=lr1.5.cpp# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
+SOURCES=lr_2_1.c# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
 TEST_TEMPLATES_DIR=/mnt/c/Users/Кря/CLionProjects/Gusev_S_214/test_templates# Это директория с шаблонами тестов (если вы их разместите в той же директории что и лабы пишите ./)
-EXECUTABLES=$(SOURCES:.cpp=.a)
+EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
 
 
@@ -28,7 +28,7 @@ FAILED_IFILE_RFILE_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/failed_ifile_rfile_ofile
 
 all: $(EXECUTABLES) # Чтобы собрать все лабы надо ввести команду make
 
-%.a : %.cpp
+%.a : %.c
 	$(CC) $(CFLAGS) $< $(CLIBS) -o $@
 
 clean: # Чтобы удалить все исполняемые файлы надо ввести команду make clean
@@ -89,51 +89,35 @@ clean: # Чтобы удалить все исполняемые файлы на
 #  
 
 test_command_args_1:
-	@$(FAILED_CMD) "lr1.5.a" 7 "Wrong number of arguments."
-	@echo "TEST 1 PASSED. we enter without arguments"
+	@$(FAILED_CMD) "lr_2_1.a" -1 "Wrong number of arguments"
+	@echo "TEST 1 PASSED. we enter without arguments."
 
 test_command_args_2:
-	@$(FAILED_CMD) "lr1.5.a 0.00000 0.5" 2 "Epsilon is zero."
-	@echo "TEST 2 PASSED. we enter a zero epsilon"
+	@$(FAILED_CMD) "lr_2_1.a -c dfgh bnm fghjk vbnm" 1 "Not a number"
+	@echo "TEST 2 PASSED. we enter seed that is not a number."
 
 test_command_args_3:
-	@$(FAILED_CMD) "lr1.5.a  0.000000001 0.5" 5 "Too long string was entered."
-	@echo "TEST 3 PASSED. we enter too long epsilon"
+	@$(SUCCESS_CMD) "lr_2_1.a -l qwertyuiop" "Length of string: 10."
+	@echo "TEST 3 PASSED. we enter -l and the string at which it works."
 
 test_command_args_4:
-	@$(FAILED_CMD) "lr1.5.a 0.001 0.000000000000005" 5 "Too long string was entered."
-	@echo "TEST 4 PASSED. we enter too long argument"
-
-test_command_success_ofile_1:
-	@$(SUCCESS_OFILE) "lr1.5.a 0.001 0.5" "output_for_task_1_5.txt"
-	@echo "TEST 5 PASSED. we enter the number at which it works"
+	@$(SUCCESS_CMD) "lr_2_1.a -r cbhsbchbivndiv" "Reverse string: vidnvibhcbshbc"
+	@echo "TEST 4 PASSED. we enter -r and the string at which it works."
 
 test_command_args_5:
-	@$(FAILED_CMD) "lr1.5.a 0.001 0.5 23 1 4" 7 "Wrong number of arguments."
-	@echo "TEST 6 PASSED. entering the wrong number of arguments"
+	@$(SUCCESS_CMD) "lr_2_1.a -u asdf2302193mmf" "New half-upper string: aSdF2302193MmF"
+	@echo "TEST 5 PASSED. we enter -u and the string at which it works."
 
 test_command_args_6:
-	@$(FAILED_CMD) "lr1.5.a 0.001 a" 3 "Value is not a number."
-	@echo "TEST 7 PASSED. we enter an argument that is not a number"
-
-test_command_success_ofile_2:
-	@$(SUCCESS_OFILE) "lr1.5.a 0.001 0.00000000" "output_for_task_1_5_2.txt"
-	@echo "TEST 8 PASSED. we enter the number at which it works"
+	@$(FAILED_CMD) "lr_2_1.a -c dfgh 123" -1 "Wrong number of arguments."
+	@echo "TEST 6 PASSED. we enter not enough arguments."
 
 test_command_args_7:
-	@$(FAILED_CMD) "lr1.5.a a 0.5" 3 "Value is not a number."
-	@echo "TEST 9 PASSED. we enter a epsilon that is not a number"
+	@$(SUCCESS_CMD) "lr_2_1.a -c dfgh 123 nquin qnuid dcn h37 bb3u" "Concatenated string: <nquinqnuidbb3uh37dcndfgh>"
+	@echo "TEST 7 PASSED. we enter -c and the strings at which it works."
 
 test_command_args_8:
-	@$(FAILED_CMD) "lr1.5.a 21 0.5" 6 "Epsilon is too big."
-	@echo "TEST 10 PASSED. entering too big epsilon"
+	@$(SUCCESS_CMD) "lr_2_1.a -n bcw21bnu1..x12/.;.1nki" "Right ordered string: 211121bcwbnuxnki../.;."
+	@echo "TEST 8 PASSED. we enter -n and the string at which it works."
 
-test_command_args_9:
-	@$(FAILED_CMD) "lr1.5.a -0.000001 0.5" 4 "Epsilon can not be negative."
-	@echo "TEST 10 PASSED. entering the negative epsilon"
-
-test_command_success_ofile_3:
-	@$(SUCCESS_OFILE) "lr1.5.a 0.001 1" "output_for_task_1_5_3.txt"
-	@echo "TEST 12 PASSED. we enter the number at which it works"
-
-test: test_command_args_1 test_command_args_2 test_command_args_3 test_command_args_4 test_command_success_ofile_1 test_command_args_5 test_command_args_6 test_command_success_ofile_2 test_command_args_7 test_command_args_8 test_command_args_9 test_command_success_ofile_3# Здесь перечисляются все написанные вами тесты. Запуск тестов производится по команде make test
+test: test_command_args_1 test_command_args_2 test_command_args_3 test_command_args_4 test_command_args_5 test_command_args_6 test_command_args_7 test_command_args_8# Здесь перечисляются все написанные вами тесты. Запуск тестов производится по команде make test
