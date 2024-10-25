@@ -1,0 +1,6 @@
+Calculate the geometric mean number: 8.0 16.0 32.0
+The average geometric value: 16.000000
+Raising the number 8.0 to a power 4: 4096.000000
+Raising the number 2.0 to a power -3: 0.125000
+Calculate the geometric mean number: 0
+The average geometric value: 0.125000 

@@ -1,0 +1,2 @@
+Let's calculate the sum of the numbers 1A, 1B, 1C in the number system 16
+Result: 81

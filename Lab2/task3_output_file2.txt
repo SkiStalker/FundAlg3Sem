@@ -1,0 +1,2 @@
+Found in the file ./task3_input_file1.txt, line 3, position 1
+INFO: Substring was not found in the specified files

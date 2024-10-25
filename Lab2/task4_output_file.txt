@@ -1,0 +1,14 @@
+1. Let's check for the convexity of a polygon with points: (0;0), (1;0), (1;1), (0;1)
+The polygon is convex
+1. Let's check for the convexity of a polygon with points: (0;0), (2;2), (4;0), (3;3), (1;3)
+The polygon is not convex or ERROR: 2
+
+2. Let's calculate a polynomial of the form: 3x^3 + 2x^2 + x + 5 at the point 2
+The value of the polynomial: 39.000000
+2. Let's calculate a polynomial of the form: -x^2 + 4x - 7 at the point -1
+The value of the polynomial: -12.000000
+
+3. Let's find the Kaprekar numbers in the sequence (1, 9, 23, 45, 297) with the base 10
+Found 3 Kaprekar numbers
+3. Let's find the Kaprekar numbers in the sequence (88, 55, 34, A) with the base 17
+Found 2 Kaprekar numbers

@@ -1,0 +1,3 @@
+Found in the file ./task3_input_file1.txt, line 3, position 1
+Found in the file ./task3_input_file2.txt, line 14, position 38
+Operation completed.
