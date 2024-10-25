@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 #include <ctype.h>
 
 int isFraction(const char *str) {
@@ -49,52 +48,70 @@ int findGcd(int a, int b) {
     return a;
 }
 
-int hasFiniteRepresentation(double number, int base) {
-    int denominator = 1;
-
-    while (number != floor(number)) {
-        number *= 10;
-        denominator *= 10;
-    }
-
-    int gcdValue = findGcd((int)number, denominator);
-    denominator /= gcdValue;
-
-    int baseCopy = base;
-    for (int divisor = 2; divisor <= baseCopy; divisor++) {
-        while (baseCopy % divisor == 0) {
-            baseCopy /= divisor;
+void parseFraction(const char *str, int *numerator, int *denominator) {
+    char *dot = strchr(str, '.');
+    if (dot) {
+        int integerPart = atoi(str);
+        int fractionalPart = atoi(dot + 1);
+        int fractionalLength = strlen(dot + 1);
+        
+        *denominator = 1;
+        for (int i = 0; i < fractionalLength; i++) {
+            *denominator *= 10;
         }
-
-        while (denominator % divisor == 0) {
-            denominator /= divisor;
-        }
+        
+        *numerator = integerPart * (*denominator) + fractionalPart;
+    } else {
+        *numerator = atoi(str);
+        *denominator = 1;
     }
-
-    return denominator == 1;
 }
 
-void checkFractionRepresentation(int base, int count, double numbers[]) {
-    for (int i = 0; i < count; i++) {
-        double number = numbers[i];
-        char formattedNumber[20];
-        snprintf(formattedNumber, sizeof(formattedNumber), "%.12f", number);
+// Проверка, имеет ли дробь конечное представление в заданном основании
+int hasFiniteRepresentation(int numerator, int denominator, int base) {
+    // Упрощаем дробь
+    int gcdValue = findGcd(numerator, denominator);
+    denominator /= gcdValue;
 
-        char *dot = strchr(formattedNumber, '.');
-        if (dot) {
-            char *end = formattedNumber + strlen(formattedNumber) - 1;
-            while (end > dot && *end == '0') {
-                *end-- = '\0';
-            }
-            if (end == dot) {
-                *dot = '\0';
+    // Проверяем делимость знаменателя только на простые множители основания
+    while (denominator > 1) {
+        int factor = 2; // Начинаем с 2
+        int found = 0;
+
+        // Проверяем, можно ли разделить знаменатель на простые множители
+        while (factor * factor <= base) {
+            if (denominator % factor == 0) {
+                denominator /= factor;
+                found = 1;
+            } else {
+                factor++;
             }
         }
 
-        if (hasFiniteRepresentation(number, base)) {
-            printf("Число %s имеет конечное представление в системе с основанием %d.\n", formattedNumber, base);
+        // Проверка последнего возможного простого множителя
+        if (base > 1 && denominator % base == 0) {
+            denominator /= base;
+            found = 1;
+        }
+
+        // Если не нашли никаких простых множителей, выходим из цикла
+        if (!found) {
+            break;
+        }
+    }
+
+    return denominator == 1; // Если дошли до 1, значит конечное представление есть
+}
+
+void checkFractionRepresentation(int base, int count, char *numbers[]) {
+    for (int i = 0; i < count; i++) {
+        int numerator, denominator;
+        parseFraction(numbers[i], &numerator, &denominator);
+        
+        if (hasFiniteRepresentation(numerator, denominator, base)) {
+            printf("Число %s имеет конечное представление в системе с основанием %d.\n", numbers[i], base);
         } else {
-            printf("Число %s не имеет конечное представление в системе с основанием %d.\n", formattedNumber, base);
+            printf("Число %s не имеет конечное представление в системе с основанием %d.\n", numbers[i], base);
         }
     }
 }
@@ -117,25 +134,15 @@ int main(int argc, char *argv[]) {
     }
 
     int count = argc - 2;
-    double *numbers = (double *)malloc(count * sizeof(double));
-
-    if (numbers == NULL) {
-        printf("Ошибка выделения памяти!\n");
-        return 1;
-    }
 
     for (int i = 0; i < count; i++) {
         if (!isFraction(argv[i + 2])) {
             printf("Ошибка: '%s' не является допустимым числом.\n", argv[i + 2]);
-            free(numbers);
             return 1;
         }
-        numbers[i] = atof(argv[i + 2]);
     }
 
-    checkFractionRepresentation(base, count, numbers);
-
-    free(numbers);
+    checkFractionRepresentation(base, count, &argv[2]);
 
     return 0;
 }

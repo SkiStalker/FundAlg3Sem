@@ -3,12 +3,10 @@
 #include <math.h>
 #include <ctype.h>
 
-// Функция для вычисления факториала
 int calculateFactorial(int n) {
     return (n <= 1) ? 1 : n * calculateFactorial(n - 1);
 }
 
-// Функция для переразложения многочлена
 void reexpandPolynomial(double epsilon, double a, double **resultCoeffs, int degree, double *fCoeffs) {
     *resultCoeffs = (double *)malloc((degree + 1) * sizeof(double));
     if (*resultCoeffs == NULL) {
@@ -27,7 +25,6 @@ void reexpandPolynomial(double epsilon, double a, double **resultCoeffs, int deg
     }
 }
 
-// Валидация вещественного числа
 int validateDouble(const char *arg, double *value, double maxValue, int allowZero) {
     char *endptr;
     *value = strtod(arg, &endptr);
@@ -37,7 +34,6 @@ int validateDouble(const char *arg, double *value, double maxValue, int allowZer
     return 1;
 }
 
-// Валидация целого числа
 int validateInteger(const char *arg, int *value) {
     char *endptr;
     *value = strtol(arg, &endptr, 10);
@@ -47,7 +43,6 @@ int validateInteger(const char *arg, int *value) {
     return 1;
 }
 
-// Функция для форматированного вывода коэффициентов
 void displayCoefficients(double *coeffs, int degree) {
     printf("Новые коэффициенты многочлена в степенях (x - a): ");
     for (int i = 0; i <= degree; i++) {
@@ -69,7 +64,6 @@ int main(int argc, char *argv[]) {
     double epsilon, a;
     int degree;
 
-    // Валидация аргументов
     if (!validateDouble(argv[1], &epsilon, 1.0, 0)) {
         printf("Ошибка: epsilon должно быть числом > 0 и <= 1.\n");
         return 1;
@@ -89,7 +83,6 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Чтение коэффициентов с валидацией
     for (int i = 0; i <= degree; i++) {
         if (!validateDouble(argv[4 + i], &coeffs[i], 1e10, 1)) {
             printf("Ошибка: коэффициент при x должен быть числом <= 1e10.\n");
