@@ -1,0 +1,8 @@
+0.405075341217270
+Is not representable
+
+0.714631463146314
+Is not representable
+
+0.4
+Is representable
