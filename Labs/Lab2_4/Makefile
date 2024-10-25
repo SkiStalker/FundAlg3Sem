@@ -26,7 +26,7 @@ clean:
 
 
 test_success1_1:
-	@$(SUCCESS_CMD) "./Lab2_4.a" "sdvs"
+	@$(SUCCESS_CMD) "./Lab2_4.a" "No convexity 4.000000 G IS NOT CUPCER'S NUMBER B IS NOT CUPCER'S NUMBER 2 IS NOT CUPCER'S NUMBER "
 	@echo "ALWAYS SUCCESS"
 
 test: test_success1_1
