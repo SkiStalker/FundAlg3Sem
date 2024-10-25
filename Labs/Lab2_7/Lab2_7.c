@@ -41,7 +41,7 @@ void equation(const double ep, const callback func, double l, double r) {
             x = (l + r) / 2;
         }
     }
-    printf("%lf\n", l);
+    printf("%lf ", l);
 }
 
 int solve(const double ep, const callback func, const double l, const double r) {
