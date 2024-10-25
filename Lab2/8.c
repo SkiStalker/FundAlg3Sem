@@ -109,9 +109,9 @@ int main() {
     }
 
     int base8 = 8;
-    const char* numbersBase8[] = {"12", "7", "15"};
+    const char* numbersBase8[] = {"12", "7", "15", "33", "241"};
     printf("Сложение в восьмеричной системе (база %d):\n", base8);
-    char* result8 = sumInBase(base8, 3, numbersBase8[0], numbersBase8[1], numbersBase8[2]);
+    char* result8 = sumInBase(base8, 5, numbersBase8[0], numbersBase8[1], numbersBase8[2], numbersBase8[3], numbersBase8[4]);
     if (result8) {
         printf("Результат: %s\n\n", result8);
         free(result8);
@@ -120,9 +120,9 @@ int main() {
     }
 
     int base10 = 10;
-    const char* numbersBase10[] = {"25", "37", "89"};
+    const char* numbersBase10[] = {"25", "37"};
     printf("Сложение в десятичной системе (база %d):\n", base10);
-    char* result10 = sumInBase(base10, 3, numbersBase10[0], numbersBase10[1], numbersBase10[2]);
+    char* result10 = sumInBase(base10, 2, numbersBase10[0], numbersBase10[1]);
     if (result10) {
         printf("Результат: %s\n\n", result10);
         free(result10);
@@ -131,9 +131,9 @@ int main() {
     }
 
     int base16 = 16;
-    const char* numbersBase16[] = {"A", "1F", "B"};
+    const char* numbersBase16[] = {"A", "1F", "B", "53"};
     printf("Сложение в шестнадцатеричной системе (база %d):\n", base16);
-    char* result16 = sumInBase(base16, 3, numbersBase16[0], numbersBase16[1], numbersBase16[2]);
+    char* result16 = sumInBase(base16, 4, numbersBase16[0], numbersBase16[1], numbersBase16[2], numbersBase16[3]);
     if (result16) {
         printf("Результат: %s\n\n", result16);
         free(result16);
