@@ -1,0 +1,22 @@
+Test1:
+From file <./test1.txt>:
+Line 1 from 46 symbol.
+From file <./test2.txt>:
+Line 1 from 20 symbol.
+Line 1 from 76 symbol.
+Test2:
+From file <./test3.txt>:
+Line 2 from 25 symbol.
+Line 3 from 16 symbol.
+Line 3 from 30 symbol.
+From file <./test2.txt>:
+Line 1 from 20 symbol.
+Line 1 from 76 symbol.
+From file <./test1.txt>:
+Line 1 from 46 symbol.
+Test3:
+From file <./test3.txt>:
+Line 1 from 2 symbol.
+From file <./test2.txt>:
+Line 1 from 4 symbol.
+From file <./test1.txt>:

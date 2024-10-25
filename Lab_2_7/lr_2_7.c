@@ -60,34 +60,34 @@ int solve(const double eps, const callback func, double l, double r) {
     return SUCCESS;
 }
 
-double funcForEq1 (double n) {
+double EEqFunc(double n) {
     double res = log(n) - 1;
     return res;
 }
 
-double funcForEq2 (double n) {
+double PiEqFunc(double n) {
     double res = sin(n);
     return res;
 }
 
-double funcForEq3 (double n) {
+double lnEqFunc(double n) {
     double res = pow(2.7182818284, n) - 2;
     return res;
 }
 
 int main() {
     int code;
-    code = solve(0.00001, &funcForEq1, 1, 100);
+    code = solve(0.00001, &EEqFunc, 1, 100);
     if (code != SUCCESS) {
         HandlingError(code);
     }
 
-    code = solve(0.00001, &funcForEq2, 2, 4);
+    code = solve(0.00001, &PiEqFunc, 2, 4);
     if (code != SUCCESS) {
         HandlingError(code);
     }
 
-    code = solve(0.00001, &funcForEq3, 0, 100);
+    code = solve(0.00001, &lnEqFunc, 0, 100);
     if (code != SUCCESS) {
         HandlingError(code);
     }

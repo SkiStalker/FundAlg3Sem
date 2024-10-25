@@ -3,7 +3,7 @@ CFLAGS= -Wall -Werror -Wextra
 CLIBS= -lm
 
 SOURCES=lr_2_2.c# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
-TEST_TEMPLATES_DIR=/mnt/c/Users/Кря/CLionProjects/Gusev_S_214/test_templates# Это директория с шаблонами тестов (если вы их разместите в той же директории что и лабы пишите ./)
+TEST_TEMPLATES_DIR=./../test_templates# Это директория с шаблонами тестов (если вы их разместите в той же директории что и лабы пишите ./)
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
 

@@ -132,6 +132,15 @@ char * summ(int base, int cnt, ...) {
     for (int i = 1; i < cnt; ++i) {
         num = va_arg(arg, char*);
         char* promRes = plus(res, num, base);
+        len = strLen(promRes);
+        char *ptr = (char*)realloc(res, (len + 1)*sizeof(char));
+        if (ptr == NULL) {
+            printf("Memory allocating error.\n");
+            free(promRes);
+            free(res);
+            return NULL;
+        }
+        res = ptr;
         strCpy(res, promRes);
         free(promRes);
     }
@@ -139,7 +148,13 @@ char * summ(int base, int cnt, ...) {
 }
 
 int main() {
-    char* res = summ(10, 4, "123", "8976", "235253", "52");
+    char* res = summ(10, 4, "123", "8976", "2305253", "52");
+    printf("%s\n", res);
+    res = summ(16, 3, "1123add1243", "bafee", "52101");
+    printf("%s\n", res);
+    res = summ(7, 5, "24235424", "4154", "2350253", "6345123", "110001");
+    printf("%s\n", res);
+    res = summ(2, 6, "1010010101", "1010", "11110", "1010000", "10000000100", "1010101010");
     printf("%s\n", res);
     free(res);
 }

@@ -33,7 +33,7 @@ void solve(char *substr, int cnt, ...) {
             printf("File opening error <%s>.\n", str);
             return;
         }
-
+        printf("From file <%s>:\n", str);
         char cur = fgetc(file);
         int line_cnt = 0;
         while (cur != EOF) {
@@ -83,5 +83,10 @@ void solve(char *substr, int cnt, ...) {
 
 
 int main() {
-    solve("hui", 2, "D:/aboba.txt", "D:/hui.txt");
+    printf("Test1:\n");
+    solve("abaaba", 2, "./test1.txt", "./test2.txt");
+    printf("Test2:\n");
+    solve("abaaba", 3, "./test3.txt", "./test2.txt", "./test1.txt");
+    printf("Test3:\n");
+    solve("fg", 3, "./test3.txt", "./test2.txt", "./test1.txt");
 }

@@ -2,8 +2,8 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 CLIBS= -lm
 
-SOURCES=lr_2_1.c# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
-TEST_TEMPLATES_DIR=/mnt/c/Users/Кря/CLionProjects/Gusev_S_214/test_templates# Это директория с шаблонами тестов (если вы их разместите в той же директории что и лабы пишите ./)
+SOURCES=lr_2_8.c# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
+TEST_TEMPLATES_DIR=./../test_templates# Это директория с шаблонами тестов (если вы их разместите в той же директории что и лабы пишите ./)
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
 
@@ -88,36 +88,8 @@ clean: # Чтобы удалить все исполняемые файлы на
 # Символ @ необходимо писать для подавления лишнего вывода в консоль при выполнении make файла.
 #  
 
-test_command_args_1:
-	@$(FAILED_CMD) "lr_2_1.a" -1 "Wrong number of arguments"
-	@echo "TEST 1 PASSED. we enter without arguments."
+test_command_success_ofile_1:
+	@$(SUCCESS_OFILE) "lr_2_8.a" "output_for_task_2_8.txt"
+	@echo "TEST ABSOLUTE PASSED. we enter the number at which it works"
 
-test_command_args_2:
-	@$(FAILED_CMD) "lr_2_1.a -c dfgh bnm fghjk vbnm" 1 "Not a number"
-	@echo "TEST 2 PASSED. we enter seed that is not a number."
-
-test_command_args_3:
-	@$(SUCCESS_CMD) "lr_2_1.a -l qwertyuiop" "Length of string: 10."
-	@echo "TEST 3 PASSED. we enter -l and the string at which it works."
-
-test_command_args_4:
-	@$(SUCCESS_CMD) "lr_2_1.a -r cbhsbchbivndiv" "Reverse string: vidnvibhcbshbc"
-	@echo "TEST 4 PASSED. we enter -r and the string at which it works."
-
-test_command_args_5:
-	@$(SUCCESS_CMD) "lr_2_1.a -u asdf2302193mmf" "New half-upper string: aSdF2302193MmF"
-	@echo "TEST 5 PASSED. we enter -u and the string at which it works."
-
-test_command_args_6:
-	@$(FAILED_CMD) "lr_2_1.a -c dfgh 123" -1 "Wrong number of arguments."
-	@echo "TEST 6 PASSED. we enter not enough arguments."
-
-test_command_args_7:
-	@$(SUCCESS_CMD) "lr_2_1.a -c dfgh 123 nquin qnuid dcn h37 bb3u" "Concatenated string: <nquinqnuidbb3uh37dcndfgh>"
-	@echo "TEST 7 PASSED. we enter -c and the strings at which it works."
-
-test_command_args_8:
-	@$(SUCCESS_CMD) "lr_2_1.a -n bcw21bnu1..x12/.;.1nki" "Right ordered string: 211121bcwbnuxnki../.;."
-	@echo "TEST 8 PASSED. we enter -n and the string at which it works."
-
-test: test_command_args_1 test_command_args_2 test_command_args_3 test_command_args_4 test_command_args_5 test_command_args_6 test_command_args_7 test_command_args_8# Здесь перечисляются все написанные вами тесты. Запуск тестов производится по команде make test
+test: test_command_success_ofile_1# Здесь перечисляются все написанные вами тесты. Запуск тестов производится по команде make test
