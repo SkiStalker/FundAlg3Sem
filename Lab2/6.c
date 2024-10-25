@@ -354,7 +354,7 @@ int main() {
     printf("\n");
 
     // Пример с кодами Цекендорфа и целым числом
-    s = "100101011 : -999";
+    s = "10110000 : 10";
     printf("Исходная строка: %s\n", s);
     result = oversscanfFunc(s, "%Zr : %d", &a, &b);
     printf("%d\t%d %d\n", result, a, b);
