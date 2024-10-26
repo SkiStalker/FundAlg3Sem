@@ -1,0 +1,3 @@
+Found substring enterance in file with id: 0, on position: line: 2, char: 6
+Found substring enterance in file with id: 0, on position: line: 7, char: 1
+Found substring enterance in file with id: 0, on position: line: 12, char: 19
