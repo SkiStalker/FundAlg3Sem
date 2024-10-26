@@ -63,7 +63,10 @@ int COEFS(double a, double* res_coefs, int n, ...) {
         }
     }
     for (int i = 0; i <= n; i++) {
-        printf("%lf ", res_coefs[i]);
+        printf("%lf", res_coefs[i]);
+        if (i != n){
+            printf(" ");
+        }
     }
     printf("\n");
     va_end(args);
