@@ -1,11 +1,11 @@
 if [ $# -ne 3 ]
 then
-    echo "Incorrect test usage. Expected <exec file with args> <return code> <file with output messages>"
+    echo "Incorrect test usage. Expected <exec file with args> <return code> <file with console output messages>"
     exit 1
 fi
 
 if [ ! -f $3 ]; then
-    echo "Output file with messages not found"
+    echo "Console output file not found"
     exit 3
 fi
 
@@ -20,14 +20,14 @@ res=$($(pwd)/$1)
 
 ret_code=$?
 
-if [[ $(cat $3) = $res && $ret_code = $ret ]]
+if [[ "$(cat $3)" = "$res" && $ret_code = $ret ]]
 then
     exit 0
 else
     echo "Passed args:"
     echo $*
-    echo $res > ./tmp.txt
-    echo "Incorrect answer: expected return code=\""$(ret)"\", received=\""$(ret_code)"\"" 
+    echo "$res" > ./tmp.txt
+    echo "Incorrect answer: expected return code=\"$ret\", received=\"$ret_code\""
     echo "Output difference:"
     echo $(diff $3 ./tmp.txt)
     rm ./tmp.txt 
