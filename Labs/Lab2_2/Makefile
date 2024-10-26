@@ -2,7 +2,7 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 
 SOURCES=Lab2_2.c
-TEST_TEMPLATES_DIR=/mnt/c/Users/Алексей/CLionProjects/Zavorotnyi_M80-214--23/test_templates
+TEST_TEMPLATES_DIR=./../../test_templates
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
 SUCCESS_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_cmd
@@ -26,7 +26,7 @@ clean:
 
 
 test_success1_1:
-	@$(SUCCESS_CMD) "./Lab2_2.a" "2.2133638394 181.4112672100"
+	@$(SUCCESS_OFILE) "./Lab2_2.a" "./out.txt"
 	@echo "ALWAYS SUCCESS"
 
 test: test_success1_1

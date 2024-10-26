@@ -23,8 +23,8 @@ void ValidateCode(const int code) {
         case NOT_A_NUM: printf("not a number\n"); break;
         case MALLOC_FAILED: printf("malloc failed\n"); break;
         case WRONG_NUMBER_OF_ARGS: printf("wrong number of arguments\n"); break;
-        case NO_CONVEXITY: printf("No convexity "); break;
-        case CONVEXITY: printf("Convexity "); break;
+        case NO_CONVEXITY: printf("No convexity\n"); break;
+        case CONVEXITY: printf("Convexity\n"); break;
         case N_NOT_POSITIVE_NUMBER: printf("N IS NOT A POSITIVE NUMBER\n"); break;
         case WRONG_BASE_OR_ARG: printf("WRONG BASE OR ARGUMENT\n"); break;
         case OK: break;
@@ -32,22 +32,32 @@ void ValidateCode(const int code) {
     }
 }
 
-char* intToStr(int N, char *str) {
-    int i = BUFSIZ - 1;
+char* intToStr(int N, char* buf) {
+    char* str = buf;
+    int i = BUFSIZ - 2;
     while (N > 0) {
         str[i--] = N % 10 + '0';
         N /= 10;
     }
-    str[i] = '\0';
+    str[BUFSIZ - 1] = '\0';
     return str;
 }
 
 char* fbaseto10(char* el, const int base) {
-    int res = 0;
-    char buf[BUFSIZ];
+    int res = 0, len = 0;
     while (*el) {
         if (isalpha(*el)) res = res * base + *el++ - 'A' + 10;
         else res = res * base + *el++ - '0';
+    }
+    int res_1 = res;
+    while(res_1) {
+        len++;
+        res_1 /= 10;
+    }
+    char* buf = malloc(sizeof(char) * len);
+    if (buf == NULL) {
+        printf("malloc failed\n");
+        return NULL;
     }
     char* result = intToStr(res, buf);
     return result;
@@ -59,7 +69,12 @@ int ValidateNum(char* argv, int base) {
         if (!isalnum(*argv)) {
             return NOT_A_NUM;
         }
-        if (atoi(fbaseto10(argv, 10)) + 1 > base) {
+        char* x = fbaseto10(argv, 10);
+        if(x == NULL) {
+            return MALLOC_FAILED;
+        }
+        if (atoi(x) + 1 > base) {
+            free(x);
             return WRONG_BASE_OR_ARG;
         }
         argv++;
@@ -137,13 +152,18 @@ int CalculatingThePolynomial(double point, int n, ...) {
         result += prev * mass_coefs[i];
         prev *= point;
     }
-    printf("%lf ", result);
+    printf("%lf\n", result);
     free(mass_coefs);
     return OK;
 }
 
 int ISCUPCERNUMBER(char* num, int base) {
-    int number = atoi(fbaseto10(num, base));
+    char* x = fbaseto10(num, base);
+    if(x == NULL) {
+        return MALLOC_FAILED;
+    }
+    int number = atoi(x);
+    free(x);
     if (number == 1) return 1;
     int squared = number * number;
     int numDigits = (int)log10(squared) + 1;
@@ -168,10 +188,10 @@ int CUPCERNUMBERS(int base, int cnt, ...) {
             continue;
         }
         if (ISCUPCERNUMBER(tek_num_str, base) == 1) {
-            printf("%s IS CUPCER'S NUMBER ", tek_num_str);
+            printf("%s IS CUPCER'S NUMBER\n", tek_num_str);
         }
         else {
-            printf("%s IS NOT CUPCER'S NUMBER ", tek_num_str);
+            printf("%s IS NOT CUPCER'S NUMBER\n", tek_num_str);
         }
     }
     va_end(args);
@@ -180,7 +200,13 @@ int CUPCERNUMBERS(int base, int cnt, ...) {
 
 int main() {
     ValidateCode(TheConvexityOfThePolygon(10, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.5, 0.5));
+    ValidateCode(TheConvexityOfThePolygon(8, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0));
+    ValidateCode(TheConvexityOfThePolygon(3, 0.4, 0.2, 0.1));
     ValidateCode(CalculatingThePolynomial(2.0, 2, 1.0, 2.0));
+    ValidateCode(CalculatingThePolynomial(6.0, 3, 3.0, 2.0, 1.0));
+    ValidateCode(CalculatingThePolynomial(14.3, 4, 1.0, 2.0, 1.5));
     ValidateCode(CUPCERNUMBERS(15, 3, "G", "B", "2"));
+    ValidateCode(CUPCERNUMBERS(27, 3, "R", "Z", "5"));
+    ValidateCode(CUPCERNUMBERS(-1, 3, "R", "Z", "5"));
     return 0;
 }

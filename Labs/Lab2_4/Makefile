@@ -2,7 +2,7 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 
 SOURCES=Lab2_4.c
-TEST_TEMPLATES_DIR=/mnt/c/Users/Алексей/CLionProjects/Zavorotnyi_M80-214--23/test_templates
+TEST_TEMPLATES_DIR=./../../test_templates
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
 SUCCESS_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_cmd
@@ -26,7 +26,7 @@ clean:
 
 
 test_success1_1:
-	@$(SUCCESS_CMD) "./Lab2_4.a" "No convexity 4.000000 G IS NOT CUPCER'S NUMBER B IS NOT CUPCER'S NUMBER 2 IS NOT CUPCER'S NUMBER "
+	@$(SUCCESS_OFILE) "./Lab2_4.a" "./out.txt"
 	@echo "ALWAYS SUCCESS"
 
 test: test_success1_1

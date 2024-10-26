@@ -65,6 +65,7 @@ int COEFS(double a, double* res_coefs, int n, ...) {
     for (int i = 0; i <= n; i++) {
         printf("%lf ", res_coefs[i]);
     }
+    printf("\n");
     va_end(args);
     free(PythagorTriangle_tek);
     free(tek_coefs);
@@ -75,9 +76,11 @@ int main() {
     int n = 3;
     double* res_coefs = (double*)malloc((n + 1) * sizeof(double));
     if (res_coefs == NULL) {
-        printf("malloc failed\n");
         return MALLOC_FAILED;
     }
     ValidateCode(COEFS(2.0, res_coefs, n, 4.0, 3.0, 2.0, 1.0));
+    ValidateCode(COEFS(3.0, res_coefs, n, 7.0, 3.5, 2.7, 1.4));
+    ValidateCode(COEFS(5.0, res_coefs, n, 17.1, 2.1, 1.5, 6.1));
     free(res_coefs);
+    return 0;
 }

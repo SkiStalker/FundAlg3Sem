@@ -2,7 +2,7 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 
 SOURCES=Lab2_1.c
-TEST_TEMPLATES_DIR=/mnt/c/Users/Алексей/CLionProjects/Zavorotnyi_M80-214--23/test_templates
+TEST_TEMPLATES_DIR=./../../test_templates
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
 SUCCESS_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_cmd
