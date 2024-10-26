@@ -1,0 +1,20 @@
+< Test_1 >
+String: 'This is string: ccc 123 1000 and 4555'
+Output: 3276, 123, 1000, 4555, Thiss; Count scanned: 5
+
+
+< Test_2 >
+String: 'This is the number 10: 0010011'
+Output: 10; Count scanned: 1
+
+
+< Test_3 >
+String: 'This is the number 10 & 3954: X & MMMCMLIV'
+Output: 10 3954; Count scanned: 2
+
+
+< Test_4 >
+String: '194394'
+Output: 194394; Count scanned: 1
+
+
