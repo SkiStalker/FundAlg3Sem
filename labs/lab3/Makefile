@@ -2,7 +2,7 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 CLIBS= -lm
 
-SOURCES=task_10.c 			# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
+SOURCES=task_10.c task_08.c			# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
 TEST_TEMPLATES_DIR=../../test_templates# Это директория с шаблонами тестов (если вы их разместите в той же директории что и лабы пишите ./)
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
@@ -111,5 +111,19 @@ test_10_success:
 	@echo "TEST 5 PASSED: task 10 working correctly"
 
 
+test_task_08: test_08_command_args1 test_08_command_args2 test_08_success
 
-test: test_task_10
+test_08_command_args1:
+	@$(FAILED_CMD) "task_08.a" 1 "ERROR: no input file provided"
+	@echo "TEST 6 PASSED: task 08 handle not providing input file"
+
+test_08_command_args2:
+	@$(FAILED_CMD) "task_08.a inp.not_existing inp" 1 "ERROR: failed to open file [inp.not_existing]"
+	@echo "TEST 7 PASSED: task 08 handle failing to open input file"
+
+test_08_success:
+	@$(SUCCESS_OFILE) "task_08.a ./task_08_in.txt" "./task_08_out_expected.txt"
+	@echo "TEST 8 PASSED: task 08 working correctly"
+
+
+test: test_task_10 test_task_08
