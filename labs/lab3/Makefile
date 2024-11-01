@@ -2,7 +2,7 @@ CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 CLIBS= -lm
 
-SOURCES=task_10.c task_08.c			# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
+SOURCES=task_10.c task_08.c task_09.c			# Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
 TEST_TEMPLATES_DIR=../../test_templates# Это директория с шаблонами тестов (если вы их разместите в той же директории что и лабы пишите ./)
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
@@ -118,12 +118,39 @@ test_08_command_args1:
 	@echo "TEST 6 PASSED: task 08 handle not providing input file"
 
 test_08_command_args2:
-	@$(FAILED_CMD) "task_08.a inp.not_existing inp" 1 "ERROR: failed to open file [inp.not_existing]"
+	@$(FAILED_CMD) "task_08.a inp.not_existing" 1 "ERROR: failed to open file [inp.not_existing]"
 	@echo "TEST 7 PASSED: task 08 handle failing to open input file"
 
 test_08_success:
 	@$(SUCCESS_OFILE) "task_08.a ./task_08_in.txt" "./task_08_out_expected.txt"
 	@echo "TEST 8 PASSED: task 08 working correctly"
 
+test_task_09: test_09_command_args1 test_09_command_args2 test_09_command_args3 test_09_command_args4 test_09_success1 test_09_success2
 
-test: test_task_10 test_task_08
+test_09_command_args1:
+	@$(FAILED_CMD) "task_09.a" 1 "ERROR: no input file provided"
+	@echo "TEST 9 PASSED: task 09 handle not providing input file"
+
+test_09_command_args2:
+	@$(FAILED_CMD) "task_09.a inp" 1 "ERROR: at least one separator must be provided"
+	@echo "TEST 10 PASSED: task 09 handle not providing separators"
+
+test_09_command_args3:
+	@$(FAILED_CMD) "task_09.a inp.not_existing inp" 1 "ERROR: each separator must be a signle symbol"
+	@echo "TEST 11 PASSED: task 09 handle invalid separator"
+
+test_09_command_args4:
+	@$(FAILED_CMD) "task_09.a inp.not_existing ' '" 1 "ERROR: failed to open file [inp.not_existing]"
+	@echo "TEST 12 PASSED: task 09 handle failing to open input file"
+
+test_09_success1:
+	@$(SUCCESS_IFILE_OFILE) "task_09.a ./task_09_in.txt ; :" "./task_09_stdin1.txt" "./task_09_out_expected.txt"
+	@echo "TEST 13 PASSED: task 09 working correctly"
+
+test_09_success2:
+	@$(SUCCESS_IFILE_OFILE) "task_09.a ./task_09.c ;" "./task_09_stdin2.txt" "./task_09_out_expected.txt"
+	@echo "TEST 14 PASSED: task 09 working correctly"
+
+
+
+test: test_task_10 test_task_08 test_task_09

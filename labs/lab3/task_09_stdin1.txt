@@ -1,0 +1,8 @@
+First 10
+Get sunt
+Get natus
+Longest
+Shortest
+Depth
+Write task_09_out.bin
+Unsupported
