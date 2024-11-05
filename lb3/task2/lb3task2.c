@@ -216,11 +216,21 @@ int main() {
     if (result != SUCCESS) {
         printf("An error occurred: ");
         switch (result) {
-        case NULL_POINTER_ERROR: printf("Null pointer error\n"); break;
-        case DIMENSION_ERROR: printf("Dimension error\n"); break;
-        case MEMORY_ALLOCATION_ERROR: printf("Memory allocation error\n"); break;
-        case MATRIX_ERROR: printf("Matrix error\n"); break;
-        default: printf("Unknown error\n"); break;
+        case NULL_POINTER_ERROR:
+            printf("Null pointer error\n");
+            break;
+        case DIMENSION_ERROR:
+            printf("Dimension error\n"); 
+            break;
+        case MEMORY_ALLOCATION_ERROR: 
+            printf("Memory allocation error\n");
+            break;
+        case MATRIX_ERROR:
+            printf("Matrix error\n"); 
+            break;
+        default:
+            printf("Unknown error\n"); 
+            break;
         }
     }
 

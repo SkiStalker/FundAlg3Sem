@@ -1,0 +1,5 @@
+1 John Doe CS101 85 90 78 92 88
+2 Jane Smith CS101 92 88 91 84 89
+5 Mike Johnson CS102 75 80 85 70 78
+4 Anna Brown CS103 88 92 90 85 87
+3 Tom Davis CS102 78 85 88 90 92

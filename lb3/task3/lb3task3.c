@@ -17,7 +17,7 @@ typedef enum {
     ERROR_INVALID_FLAG
 } ErrorCode;
 
-ErrorCode pars_arg(int argc, char* argv[], char** input_file, char** output_file, char* sort_flag) {
+ErrorCode parse_arg(int argc, char* argv[], char** input_file, char** output_file, char* sort_flag) {
 	if (argc != 4) {
 		return ERROR_INVALID_ARGUMENT;
 	}
@@ -69,12 +69,16 @@ int compareAsc(const void* a, const void* b) {
     Employee* empA = (Employee*)a;
     Employee* empB = (Employee*)b;
 
-    if (empA->salary < empB->salary) return -1;
-    if (empA->salary > empB->salary) return 1;
-
+    if (empA->salary < empB->salary) {
+        return -1;
+    }
+    if (empA->salary > empB->salary) {
+        return 1;
+    }
     int surnameComp = strcmp(empA->surname, empB->surname);
-    if (surnameComp != 0) return surnameComp;
-
+    if (surnameComp != 0) {
+        return surnameComp;
+    }
     return strcmp(empA->name, empB->name);
 }
 
@@ -115,7 +119,7 @@ int main(int argc, char* argv[]) {
     int count;
     ErrorCode error;
 
-    error = pars_arg(argc, argv, &inputFile, &outputFile, &sortFlag);
+    error = parse_arg(argc, argv, &inputFile, &outputFile, &sortFlag);
     if (error == ERROR_INVALID_ARGUMENT) {
         printf("Error: invalid number of arguments.\n");
         return ERROR_INVALID_ARGUMENT;
