@@ -1,0 +1,7 @@
+Addition result: x^2 + 2x + 1
+Division result (Quotient): x^3 + x
+Modulus result: x
+Composition result: x^2 + 1
+Evaluation result at x=1: 2
+Differentiation result: 8x
+File processed successfully.
