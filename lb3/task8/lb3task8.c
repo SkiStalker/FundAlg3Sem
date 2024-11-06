@@ -168,25 +168,16 @@ Polynomial* dividePoly(const Polynomial* dividend, const Polynomial* divisor, Po
 
     Node* divisorHead = divisor->head;
     while ((*remainder)->head && (*remainder)->head->exp >= divisorHead->exp) {
-        // Получаем коэффициент и степень для лидера (ведущего терма)
         int leadCoeff = (*remainder)->head->coeff / divisorHead->coeff;
         int leadExp = (*remainder)->head->exp - divisorHead->exp;
-
-        // Добавляем в частное
         addTerm(quotient, leadCoeff, leadExp);
-
-        // Вычисляем временный многочлен для вычитания
         Polynomial* temp = createPoly();
         addTerm(temp, leadCoeff, leadExp);
         Polynomial* tempDiv = multiplyPoly(temp, divisor);
-
-        // Вычитаем из остатка
         Polynomial* newRemainder = subtractPoly(*remainder, tempDiv);
 
         freePoly(temp);
         freePoly(tempDiv);
-
-        // Обновляем остаток
         freePoly(*remainder);
         *remainder = newRemainder;
     }
@@ -275,12 +266,12 @@ Polynomial* parsePolynomial(const char* str) {
         else if (*str == 'x') {
             if (readingCoeff) coeff = sign;
             if (*(str + 1) == '^') {
-                str += 2;  // Skip past "x^"
-                exp = *str - '0';  // Assuming single-digit exponents
+                str += 2;
+                exp = *str - '0'; 
                 expProvided = true;
             }
             else {
-                exp = 1;  // Implicit exponent 1 for "x"
+                exp = 1;  
                 expProvided = true;
             }
             readingCoeff = false;
@@ -296,8 +287,6 @@ Polynomial* parsePolynomial(const char* str) {
 
         str++;
     }
-
-    // Add the last term if needed
     if (coeff != 0 || readingCoeff == false) {
         addTerm(poly, coeff, exp);
     }
@@ -342,14 +331,10 @@ void printPoly(const Polynomial* poly) {
     while (current) {
         int coeff = current->coeff;
         int exp = current->exp;
-
-        // Пропускаем термы с нулевым коэффициентом
         if (coeff == 0) {
             current = current->next;
             continue;
         }
-
-        // Если это не первый терм, нужно добавить знак
         if (!isFirstTerm) {
             if (coeff > 0) {
                 printf(" + ");
@@ -358,14 +343,10 @@ void printPoly(const Polynomial* poly) {
                 printf(" - ");
             }
         }
-
-        // Выводим коэффициент и переменную
         if (exp == 0) {
-            // Если степень 0, выводим только коэффициент
             printf("%d", abs(coeff));
         }
         else if (exp == 1) {
-            // Если степень 1, выводим коэффициент и переменную без степени
             if (abs(coeff) == 1) {
                 printf("x");
             }
@@ -374,7 +355,6 @@ void printPoly(const Polynomial* poly) {
             }
         }
         else {
-            // Для всех остальных степеней
             if (abs(coeff) == 1) {
                 printf("x^%d", exp);
             }
@@ -403,8 +383,6 @@ ErrorCode processCommand(const char* command, Polynomial** accumulator) {
     Polynomial* poly1 = NULL, * poly2 = NULL;
     char* arg1 = strtok(arguments, ",");
     char* arg2 = strtok(NULL, ",");
-
-    // Обработка аргументов
     if (arg1) {
         if (arg2) {
             poly1 = parsePolynomial(arg1);
@@ -444,13 +422,13 @@ ErrorCode processCommand(const char* command, Polynomial** accumulator) {
     }
     else if (strcmp(operation, "Eval") == 0) {
         int x = atoi(arg1);
-        int evalResult = evaluatePoly(*accumulator, x);  // Используем аккумулятор
+        int evalResult = evaluatePoly(*accumulator, x);  
         printf("Evaluation result at x=%d: %d\n", x, evalResult);
         return SUCCESS;
     }
     else if (strcmp(operation, "Diff") == 0) {
         if (arg1) {
-            poly1 = parsePolynomial(arg1);  // Используем выражение из аргумента
+            poly1 = parsePolynomial(arg1); 
         }
         result = differentiatePoly(poly1);
         printf("Differentiation result: ");
@@ -494,34 +472,27 @@ ErrorCode processFile(const char* filename) {
     }
 
     char line[256];
-    bool inMultilineComment = false;  // Флаг для многострочного комментария
+    bool inMultilineComment = false;  
     while (fgets(line, sizeof(line), file)) {
-        // Пропускаем пустые строки
         if (strlen(line) == 0 || line[0] == '\n') {
             continue;
         }
-
-        // Пропускаем однострочные комментарии
         if (line[0] == '%') {
             continue;
         }
-
-        // Обрабатываем многострочные комментарии
         if (!inMultilineComment) {
             if (line[0] == '[') {
                 inMultilineComment = true;
-                continue;  // Пропускаем строку начала многострочного комментария
+                continue;  
             }
         }
         else {
-            if (strchr(line, ']')) {  // Закрывающая скобка для многострочного комментария
+            if (strchr(line, ']')) {  
                 inMultilineComment = false;
-                continue;  // Пропускаем строку конца многострочного комментария
+                continue;  
             }
-            continue;  // Пропускаем строки внутри многострочного комментария
+            continue;  
         }
-
-        // Теперь строки не являются комментариями, можно обрабатывать команду
         ErrorCode result = processCommand(line, &accumulator);
         if (result != SUCCESS) {
             printf("Error processing command: %d\n", result);

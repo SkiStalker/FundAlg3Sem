@@ -10,13 +10,13 @@ typedef enum {
     ERROR_INVALID_INPUT
 } ErrorCode;
 
-// Структура для строки
+
 typedef struct {
     char* data;
     int length;
 } String;
 
-// Создание строки на основе char*
+
 ErrorCode create_string(String* str, const char* initial) {
     if (!initial) {
         return ERROR_INVALID_INPUT;
@@ -30,7 +30,7 @@ ErrorCode create_string(String* str, const char* initial) {
     return SUCCESS;
 }
 
-// Удаление содержимого строки
+
 void delete_string(String* str) {
     if (str->data != NULL) {
         free(str->data);
@@ -39,7 +39,7 @@ void delete_string(String* str) {
     str->length = 0;
 }
 
-// Сравнение строк по длине и лексикографически
+
 int compare_strings(const String* str1, const String* str2) {
     if (str1->length != str2->length) {
         return str1->length - str2->length;
@@ -47,12 +47,12 @@ int compare_strings(const String* str1, const String* str2) {
     return strcmp(str1->data, str2->data);
 }
 
-// Проверка эквивалентности строк
+
 int areStringsEqual(const String* str1, const String* str2) {
     return strcmp(str1->data, str2->data) == 0;
 }
 
-// Копирование содержимого в существующий экземпляр String
+
 ErrorCode copyToExistingString(String* dest, const String* src) {
     if (!src->data) {
         return ERROR_INVALID_INPUT;
@@ -69,7 +69,7 @@ ErrorCode copyToExistingString(String* dest, const String* src) {
     return SUCCESS;
 }
 
-// Копирование содержимого в новый экземпляр String
+
 ErrorCode copyToNewString(String** dest, const String* src) {
     if (!src->data) {
         return ERROR_INVALID_INPUT;
@@ -88,7 +88,7 @@ ErrorCode copyToNewString(String** dest, const String* src) {
     return SUCCESS;
 }
 
-// Конкатенация двух строк
+
 ErrorCode concatenate_strings(String* dest, const String* src) {
     char* newData = (char*)realloc(dest->data, dest->length + src->length + 1);
     if (!newData) {
@@ -100,7 +100,7 @@ ErrorCode concatenate_strings(String* dest, const String* src) {
     return SUCCESS;
 }
 
-// Структура Address
+
 typedef struct {
     String city;
     String street;
@@ -110,13 +110,13 @@ typedef struct {
     String postalCode;
 } Address;
 
-// Структура Mail
+
 typedef struct {
     Address recipientAddress;
-    float weight;           // Вес посылки
-    String parcelID;       // Идентификатор посылки 4
-    String creationTime;    // Время создания
-    String deliveryTime;    // Время доставки
+    float weight;         
+    String parcelID;       
+    String creationTime;  
+    String deliveryTime;   
 } Mail;
 
 typedef struct {
@@ -148,18 +148,12 @@ ErrorCode addMail(Post* post, Mail mail) {
     if (!post) {
         return ERROR_INVALID_INPUT;
     }
-
-    // Allocate or reallocate memory for the new mail entry
     Mail* temp = realloc(post->mails, (post->mailCount + 1) * sizeof(Mail));
     if (!temp) {
         return ERROR_MEMORY;
     }
-    post->mails = temp;
-
-    // Initialize the new mail entry within post->mails
+    post->mails = temp
     Mail* newMail = &post->mails[post->mailCount];
-
-    // Deep copy Address details
     if (createAddress(&newMail->recipientAddress,
         mail.recipientAddress.city.data,
         mail.recipientAddress.street.data,
@@ -170,18 +164,16 @@ ErrorCode addMail(Post* post, Mail mail) {
         return ERROR_MEMORY;
     }
 
-    // Copy other Mail fields
+ 
     newMail->weight = mail.weight;
-
-    // Deep copy the strings in Mail (parcelID, creationTime, deliveryTime)
     if (create_string(&newMail->parcelID, mail.parcelID.data) != SUCCESS ||
         create_string(&newMail->creationTime, mail.creationTime.data) != SUCCESS ||
         create_string(&newMail->deliveryTime, mail.deliveryTime.data) != SUCCESS) {
-        deleteAddress(&newMail->recipientAddress);  // Free the address in case of error
+        deleteAddress(&newMail->recipientAddress);  
         return ERROR_MEMORY;
     }
 
-    // Increment the mail count after successful addition
+  
     post->mailCount++;
     return SUCCESS;
 }
@@ -204,7 +196,7 @@ ErrorCode deleteMail(Post* post, const char* parcelID) {
     return ERROR_INVALID_INPUT;
 }
 
-// Поиск объекта Mail по идентификатору
+
 Mail* findMailByID(Post* post, const char* parcelID) {
     for (int i = 0; i < post->mailCount; i++) {
         if (strcmp(post->mails[i].parcelID.data, parcelID) == 0) {
@@ -228,38 +220,33 @@ void sortMails(Post* post) {
     qsort(post->mails, post->mailCount, sizeof(Mail), compareMail);
 }
 
-// Проверка срока доставки на истечение
+
 int isDeliveryExpired(const String* deliveryTime) {
     struct tm deliveryTm = { 0 };
     int day, month, year, hour, minute, second;
 
-    // Разбираем строку формата "dd:MM:yyyy hh:mm:ss"
+    
     if (sscanf(deliveryTime->data, "%2d:%2d:%4d %2d:%2d:%2d",
         &day, &month, &year, &hour, &minute, &second) != 6) {
         printf("Invalid date format\n");
-        return 0; // Ошибка в формате даты
+        return 0; 
     }
-
-    // Заполняем структуру tm
     deliveryTm.tm_mday = day;
-    deliveryTm.tm_mon = month - 1;  // Месяцы идут от 0 до 11
-    deliveryTm.tm_year = year - 1900; // Года идут от 1900
+    deliveryTm.tm_mon = month - 1;  
+    deliveryTm.tm_year = year - 1900; 
     deliveryTm.tm_hour = hour;
     deliveryTm.tm_min = minute;
     deliveryTm.tm_sec = second;
-
-    // Конвертируем в time_t
     time_t delivery = mktime(&deliveryTm);
     if (delivery == -1) {
         printf("Error in date conversion\n");
         return 0;
     }
 
-    // Сравниваем с текущим временем
     return time(NULL) > delivery;
 }
 
-// Вывод всех доставленных и истекших отправлений
+
 void printDeliveredMails(const Post* post) {
     printf("Delivered mails:\n");
     for (int i = 0; i < post->mailCount; i++) {
@@ -529,16 +516,12 @@ int main() {
     String str1, str2, str3 = { NULL, 0 };
     String* strCopy;
     ErrorCode errCode;
-
-    // Создание строки из литерала
     errCode = create_string(&str1, "Hello");
     if (errCode != SUCCESS) {
         printf("Error creating str1\n");
         return 1;
     }
     printf("str1: %s\n", str1.data);
-
-    // Создание второй строки
     errCode = create_string(&str2, "World");
     if (errCode != SUCCESS) {
         printf("Error creating str2\n");
@@ -546,12 +529,8 @@ int main() {
         return 1;
     }
     printf("str2: %s\n", str2.data);
-
-    // Сравнение строк
     int comparison = compare_strings(&str1, &str2);
     printf("Comparison between str1 and str2: %d\n", comparison);
-
-    // Копирование содержимого str1 в str3
     errCode = copyToExistingString(&str3, &str1);
     if (errCode != SUCCESS) {
         printf("Error copying str1 to str3\n");
@@ -559,9 +538,6 @@ int main() {
     else {
         printf("str3 (copy of str1): %s\n", str3.data);
     }
-
-
-    // Копирование содержимого str1 в новый экземпляр String
     errCode = copyToNewString(&strCopy, &str1);
     if (errCode != SUCCESS) {
         printf("Error creating a new copy of str1\n");
@@ -569,8 +545,6 @@ int main() {
     else {
         printf("strCopy (new copy of str1): %s\n", strCopy->data);
     }
-
-    // Конкатенация str1 и str2
     errCode = concatenate_strings(&str1, &str2);
     if (errCode != SUCCESS) {
         printf("Error concatenating str1 and str2\n");
@@ -578,12 +552,8 @@ int main() {
     else {
         printf("str1 after concatenation with str2: %s\n", str1.data);
     }
-
-    // Проверка эквивалентности строк
     int isEqual = areStringsEqual(&str1, &str3);
     printf("Are str1 and str3 equal? %s\n", isEqual ? "Yes" : "No");
-
-    // Очистка памяти для строк
     delete_string(&str1);
     delete_string(&str2);
     delete_string(&str3);
@@ -592,8 +562,6 @@ int main() {
 
     //2 пункт
     Post post = { NULL, NULL, 0 };
-
-    // Добавление тестовых данных для проверки сортировки
     Mail mail1, mail2, mail3;
     createAddress(&mail1.recipientAddress, "CityA", "StreetA", 1, "Bldg1", 101, "123456");
     create_string(&mail1.parcelID, "00000000000001");
@@ -616,22 +584,12 @@ int main() {
     addMail(&post, mail1);
     addMail(&post, mail2);
     addMail(&post, mail3);
-
-    // Вывод перед сортировкой
     printf("Before sorting:\n");
     printMails(&post);
-
-    // Сортировка
     sortMails(&post);
-
-    // Вывод после сортировки
     printf("After sorting:\n");
     printMails(&post);
-
-    // Запуск основного меню
     mainMenu(&post);
-
-    // Очистка памяти
     for (int i = 0; i < post.mailCount; i++) {
         deleteAddress(&post.mails[i].recipientAddress);
         delete_string(&post.mails[i].parcelID);
