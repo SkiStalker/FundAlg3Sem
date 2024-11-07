@@ -1,0 +1,28 @@
+if [ $# -ne 4 ]; then
+    echo "Incorrect test usage. Expected <exec file with args> <return code> <line with console output message>"
+    exit 1
+fi
+
+exec_file=$1
+expected_ret_code=$2
+expected_output=$3
+input=$4
+
+if (( $expected_ret_code < 0 )); then
+    expected_ret_code=$(( 256 + $expected_ret_code ))
+fi
+
+res_output=$(echo -e "$input" | $(pwd)/$exec_file)
+ret_code=$?
+
+
+if echo "$res_output" | grep -q "$expected_output" && [ $ret_code -eq $expected_ret_code ]; then
+    exit 0
+else
+    echo "Passed args:"
+    echo "$*"
+    echo "Incorrect answer:"
+    echo "Expected output=\"$expected_output\", received=\"$res_output\""
+    echo "Expected return code=\"$expected_ret_code\", received=\"$ret_code\""
+    exit 2
+fi

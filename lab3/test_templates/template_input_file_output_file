@@ -1,0 +1,43 @@
+if [ $# -ne 4 ]; then
+    echo "Incorrect test usage. Expected <exec file with args> <return code> <input file> <file with expected console output>"
+    exit 1
+fi
+
+if [ ! -f "$4" ]; then
+    echo "Console output file not found"
+    exit 4
+fi
+
+ret=$2
+
+if (( ret < 0 )); then
+    ret=$(( 256 + ret ))
+fi
+
+
+res=$($(pwd)/$1 < $3)
+ret_code=$?
+
+
+expected_output=$(cat "$4")
+
+if [[ "$res" == "$expected_output" && "$ret_code" -eq "$ret" ]]; then
+    exit 0
+else
+    echo "Passed args:"
+    echo "$*"
+    echo "Passed data to std input:"
+    echo "$(cat "$3")"
+    echo "Incorrect answer: expected return code=\"$ret\", received=\"$ret_code\""
+    
+    echo "Expected output:"
+    echo "$expected_output"
+    
+    echo "Actual output:"
+    echo "$res"
+    
+    diff_output=$(diff <(echo "$expected_output") <(echo "$res"))
+    echo "Output difference:"
+    echo "$diff_output"
+    exit 2
+fi

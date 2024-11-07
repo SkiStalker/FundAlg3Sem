@@ -1,0 +1,2 @@
+Enter dimension: Enter 3 vector with 5 dim:
+ERROR: wrong number

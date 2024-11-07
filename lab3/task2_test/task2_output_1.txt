@@ -1,0 +1,9 @@
+Enter dimension: Enter 3 vector with 3 dim:
+There are 1 vectors for 1 norm:
+* (10.000, 2.000, 3.000)
+
+There are 1 vectors for 2 norm:
+* (-7.000, 8.000, -9.000)
+
+There are 1 vectors for 3 norm:
+* (4.000, 5.000, 6.000)
