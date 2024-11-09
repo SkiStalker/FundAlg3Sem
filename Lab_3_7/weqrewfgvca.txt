@@ -1,0 +1,229 @@
+Enter input file: Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Enter surname: Liver 1:
+Surname: Pupkin
+Name: Vasyaqwe
+Patronymic: Ivanovichqwe
+Date of birth: 12:12:2000
+Gender: M
+Avg income: 50000123.000000
+
+Liver 2:
+Surname: Pupkin
+Name: Vasyaqwe
+Patronymic: Ivanovichqwe
+Date of birth: 11:12:2020
+Gender: M
+Avg income: 50000123.000000
+
+Liver 3:
+Surname: Pupkin
+Name: Vasya
+Patronymic: 
+Date of birth: 12:12:2020
+Gender: M
+Avg income: 5000000.000000
+
+Liver 4:
+Surname: Pupkin
+Name: Vasyaqwe
+Patronymic: Ivanovichqwe
+Date of birth: 12:12:2023
+Gender: M
+Avg income: 50000123.000000
+
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Enter name: Liver 1:
+Surname: Pupkin
+Name: Vasya
+Patronymic: 
+Date of birth: 12:12:2020
+Gender: M
+Avg income: 5000000.000000
+
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Enter patronymic: Liver 1:
+Surname: Pupkin
+Name: Vasyaqwe
+Patronymic: Ivanovichqwe
+Date of birth: 12:12:2000
+Gender: M
+Avg income: 50000123.000000
+
+Liver 2:
+Surname: Pupkin
+Name: Vasyaqwe
+Patronymic: Ivanovichqwe
+Date of birth: 11:12:2020
+Gender: M
+Avg income: 50000123.000000
+
+Liver 3:
+Surname: Pupkin
+Name: Vasyaqwe
+Patronymic: Ivanovichqwe
+Date of birth: 12:12:2023
+Gender: M
+Avg income: 50000123.000000
+
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Enter surname for upd: Enter surname: Enter name: Enter patronymic: Enter date of birth(dd:mm:yyyy): Enter gender(M/W): Enter avg_income: SUCCESS
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Фамилия: adsfgfdh, Имя: asdf, Отчество: asdf, Дата рождения: 05:05:2005, Пол: W, Средний доход: 1234.000000
+Фамилия: Pupkin, Имя: Vasyaqwe, Отчество: Ivanovichqwe, Дата рождения: 11:12:2020, Пол: M, Средний доход: 50000123.000000
+Фамилия: Pupkin, Имя: Vasya, Отчество: , Дата рождения: 12:12:2020, Пол: M, Средний доход: 5000000.000000
+Фамилия: Pupkin, Имя: Vasyaqwe, Отчество: Ivanovichqwe, Дата рождения: 12:12:2023, Пол: M, Средний доход: 50000123.000000
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Enter surname for del: SUCCESS
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Фамилия: Pupkin, Имя: Vasyaqwe, Отчество: Ivanovichqwe, Дата рождения: 11:12:2020, Пол: M, Средний доход: 50000123.000000
+Фамилия: Pupkin, Имя: Vasya, Отчество: , Дата рождения: 12:12:2020, Пол: M, Средний доход: 5000000.000000
+Фамилия: Pupkin, Имя: Vasyaqwe, Отчество: Ivanovichqwe, Дата рождения: 12:12:2023, Пол: M, Средний доход: 50000123.000000
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+2
+Последние 1 изменений отменены.
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Фамилия: adsfgfdh, Имя: asdf, Отчество: asdf, Дата рождения: 05:05:2005, Пол: W, Средний доход: 1234.000000
+Фамилия: Pupkin, Имя: Vasyaqwe, Отчество: Ivanovichqwe, Дата рождения: 11:12:2020, Пол: M, Средний доход: 50000123.000000
+Фамилия: Pupkin, Имя: Vasya, Отчество: , Дата рождения: 12:12:2020, Пол: M, Средний доход: 5000000.000000
+Фамилия: Pupkin, Имя: Vasyaqwe, Отчество: Ivanovichqwe, Дата рождения: 12:12:2023, Пол: M, Средний доход: 50000123.000000
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Enter surname: Enter name: Enter patronymic: Enter date of birth(dd:mm:yyyy): Enter gender(M/W): Enter avg_income: SUCCESS
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Фамилия: ghjk, Имя: zxcv, Отчество: fghn, Дата рождения: 11:01:2001, Пол: M, Средний доход: 32145.000000
+Фамилия: adsfgfdh, Имя: asdf, Отчество: asdf, Дата рождения: 05:05:2005, Пол: W, Средний доход: 1234.000000
+Фамилия: Pupkin, Имя: Vasyaqwe, Отчество: Ivanovichqwe, Дата рождения: 11:12:2020, Пол: M, Средний доход: 50000123.000000
+Фамилия: Pupkin, Имя: Vasya, Отчество: , Дата рождения: 12:12:2020, Пол: M, Средний доход: 5000000.000000
+Фамилия: Pupkin, Имя: Vasyaqwe, Отчество: Ivanovichqwe, Дата рождения: 12:12:2023, Пол: M, Средний доход: 50000123.000000
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End
+Данные успешно записаны в файл.
+Choose one
+1. Search by surname
+2. Search by name
+3. Search by patronymic
+4. Update liver
+5. Add liver
+6. Delete liver
+7. Write data to file
+8. Undo
+9. Print data
+0. End

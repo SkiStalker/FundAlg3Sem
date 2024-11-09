@@ -1,0 +1,77 @@
+separator: ,
+   \_sd
+            \_qweqweqwe
+                  \_m
+               \_lkjqwhgj123kbv
+                  \_l12n3b21
+         \_dasd
+      \_d
+         \_asdqweqweq
+\_asdfgaAFF
+         \_asdasdasd
+            \_asdasdas
+      \_asd
+         \_as
+            \_a
+   \_JHGFGHJKjhgfghjKJHG
+      \_3gh1
+         \_2j3hguyf12td3f
+            \_1g
+
+0. call menu
+1. Counting the number of occurrences of a word
+2. Displaying the most frequently occurring words
+3. Finding the longest and shortest word
+4. Finding the depth of a given tree
+5. Saving a tree to a file
+6. Restoring a tree from file
+7. Exit
+Select option: Enter a search word: number of words 'sd' found in the text: 2
+Select option: select a number from the menu
+Select option: Enter the number: d sd a m 
+Select option: minimum word length: m
+maximum word length: JHGFGHJKjhgfghjKJHG
+Select option: depth = 7
+Select option: The tree before saving to a file looks like this:
+   \_sd
+            \_qweqweqwe
+                  \_m
+               \_lkjqwhgj123kbv
+                  \_l12n3b21
+         \_dasd
+      \_d
+         \_asdqweqweq
+\_asdfgaAFF
+         \_asdasdasd
+            \_asdasdas
+      \_asd
+         \_as
+            \_a
+   \_JHGFGHJKjhgfghjKJHG
+      \_3gh1
+         \_2j3hguyf12td3f
+            \_1g
+outputting the tree to a file is done
+Select option: The tree is empty
+I can't print n frequently occurring words
+Select option: The tree is empty
+The tree after restoration from the file looks like this:
+   \_sd
+            \_qweqweqwe
+                  \_m
+               \_lkjqwhgj123kbv
+                  \_l12n3b21
+         \_dasd
+      \_d
+         \_asdqweqweq
+\_asdfgaAFF
+         \_asdasdasd
+            \_asdasdas
+      \_asd
+         \_as
+            \_a
+   \_JHGFGHJKjhgfghjKJHG
+      \_3gh1
+         \_2j3hguyf12td3f
+            \_1g
+Select option: 

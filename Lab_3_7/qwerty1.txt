@@ -1,0 +1,35 @@
+S: ghjk
+N: zxcv
+P: fghn
+D: 11:01:2001
+G: M
+A: 32145.00
+
+S: adsfgfdh
+N: asdf
+P: asdf
+D: 05:05:2005
+G: W
+A: 1234.00
+
+S: Pupkin
+N: Vasyaqwe
+P: Ivanovichqwe
+D: 11:12:2020
+G: M
+A: 50000123.00
+
+S: Pupkin
+N: Vasya
+P: 
+D: 12:12:2020
+G: M
+A: 5000000.00
+
+S: Pupkin
+N: Vasyaqwe
+P: Ivanovichqwe
+D: 12:12:2023
+G: M
+A: 50000123.00
+

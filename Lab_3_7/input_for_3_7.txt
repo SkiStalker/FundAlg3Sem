@@ -1,0 +1,27 @@
+S: Pupkin
+N: Vasya
+P:
+D: 12:12:2020
+G: M
+A: 5000000
+
+S: Pupkin
+N: Vasyaqwe
+P: Ivanovichqwe
+D: 11:12:2020
+G: M
+A: 50000123
+
+S: Pupkin
+N: Vasyaqwe
+P: Ivanovichqwe
+D: 12:12:2023
+G: M
+A: 50000123
+
+S: Pupkin
+N: Vasyaqwe
+P: Ivanovichqwe
+D: 12:12:2000
+G: M
+A: 50000123
