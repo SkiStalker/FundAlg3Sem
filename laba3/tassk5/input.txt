@@ -1,0 +1,4 @@
+ 3
+101 John Doe GroupA 85 90 78 92 88
+102 Maria Smith GroupB 75 80 85 70 90
+103 Alex Johnson GroupA 90 95 85 100 80
