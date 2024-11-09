@@ -1,0 +1,1 @@
+input and output files cannot be the same

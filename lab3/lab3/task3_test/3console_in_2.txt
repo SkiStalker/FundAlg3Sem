@@ -1,0 +1,1 @@
+./a.exe input.txt -r output.txt

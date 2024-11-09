@@ -1,0 +1,62 @@
+id: 3, name: biba bibov, group: 214, average grade: 4.80
+
+id: 4, name: boba bobov, group: 213, average grade: 4.00
+
+id: 8, name: cat meow, group: 214, average grade: 4.60
+
+id: 1, name: lupa lupov, group: 213, average grade: 3.80
+id: 4, name: boba bobov, group: 213, average grade: 4.00
+id: 9, name: dog woof, group: 213, average grade: 5.00
+
+id: 1, name: lupa lupov, group: 213, average grade: 3.80
+id: 2, name: pupa pupov, group: 215, average grade: 2.80
+id: 3, name: biba bibov, group: 214, average grade: 4.80
+id: 4, name: boba bobov, group: 213, average grade: 4.00
+id: 5, name: ivan ivanov, group: 214, average grade: 2.80
+id: 6, name: petr petrov, group: 215, average grade: 4.20
+id: 7, name: leonardo dicaprio, group: 215, average grade: 3.40
+id: 8, name: cat meow, group: 214, average grade: 4.60
+id: 9, name: dog woof, group: 213, average grade: 5.00
+id: 10, name: chihuahua arrrr, group: 214, average grade: 2.40
+
+id: 10, name: chihuahua arrrr, group: 214, average grade: 2.40
+id: 3, name: biba bibov, group: 214, average grade: 4.80
+id: 4, name: boba bobov, group: 213, average grade: 4.00
+id: 7, name: leonardo dicaprio, group: 215, average grade: 3.40
+id: 5, name: ivan ivanov, group: 214, average grade: 2.80
+id: 1, name: lupa lupov, group: 213, average grade: 3.80
+id: 8, name: cat meow, group: 214, average grade: 4.60
+id: 6, name: petr petrov, group: 215, average grade: 4.20
+id: 2, name: pupa pupov, group: 215, average grade: 2.80
+id: 9, name: dog woof, group: 213, average grade: 5.00
+
+id: 3, name: biba bibov, group: 214, average grade: 4.80
+id: 4, name: boba bobov, group: 213, average grade: 4.00
+id: 8, name: cat meow, group: 214, average grade: 4.60
+id: 10, name: chihuahua arrrr, group: 214, average grade: 2.40
+id: 9, name: dog woof, group: 213, average grade: 5.00
+id: 5, name: ivan ivanov, group: 214, average grade: 2.80
+id: 7, name: leonardo dicaprio, group: 215, average grade: 3.40
+id: 1, name: lupa lupov, group: 213, average grade: 3.80
+id: 6, name: petr petrov, group: 215, average grade: 4.20
+id: 2, name: pupa pupov, group: 215, average grade: 2.80
+
+id: 4, name: boba bobov, group: 213, average grade: 4.00
+id: 9, name: dog woof, group: 213, average grade: 5.00
+id: 1, name: lupa lupov, group: 213, average grade: 3.80
+id: 10, name: chihuahua arrrr, group: 214, average grade: 2.40
+id: 5, name: ivan ivanov, group: 214, average grade: 2.80
+id: 8, name: cat meow, group: 214, average grade: 4.60
+id: 3, name: biba bibov, group: 214, average grade: 4.80
+id: 6, name: petr petrov, group: 215, average grade: 4.20
+id: 2, name: pupa pupov, group: 215, average grade: 2.80
+id: 7, name: leonardo dicaprio, group: 215, average grade: 3.40
+
+average grade: 3.780000
+student: boba bobov, average grade: 4.00
+student: dog woof, average grade: 5.00
+student: lupa lupov, average grade: 3.80
+student: cat meow, average grade: 4.60
+student: biba bibov, average grade: 4.80
+student: petr petrov, average grade: 4.20
+
