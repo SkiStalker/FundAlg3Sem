@@ -1,0 +1,17 @@
+copy: [First]
+copy into malloc: [First]
+concatenated [FirstSecondThird]
+
+a = [12345679]
+b = [12345678]
+c = [123456780]
+d = [123456780]
+cmp(a, b)
+First String is greater
+cmp(a, c)
+Second String is greater
+cmp(c, d)
+Strings are equal
+
+Strings is not equal
+Strings is equal

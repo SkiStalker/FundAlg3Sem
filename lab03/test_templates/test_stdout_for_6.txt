@@ -1,0 +1,18 @@
+Hello, I can use next operations: 
+Print MostRoutes LeastRoutes LongestPath ShortestPath LongestRoute ShortestRoute LongestStop ShortestStop MaxWait 
+
+[0]: first_bus:
+		3
+	[00]: start (Stop Number: 4.00) [Time in: 01.12.2024 10:00:02]-[Time out: 01.12.2024 10:00:05]
+	[01]: intermediate (Stop Number: 1.00) [Time in: 01.12.2024 10:10:04]-[Time out: 01.12.2024 10:12:05]
+	[02]: end (Stop Number: 3.00) [Time in: 01.12.2024 10:30:02]-[Time out: 01.12.2024 10:35:05]
+[1]: second_bus:
+		5
+	[00]: start (Stop Number: 1.00) [Time in: 10.10.2023 23:32:11]-[Time out: 11.11.2023 11:04:05]
+	[01]: start (Stop Number: 1.00) [Time in: 08.07.2024 12:00:01]-[Time out: 01.12.2024 12:04:05]
+	[02]: intermediate (Stop Number: 2.00) [Time in: 01.12.2024 11:10:01]-[Time out: 01.12.2024 11:13:05]
+	[03]: end (Stop Number: 3.00) [Time in: 01.12.2024 11:30:01]-[Time out: 01.12.2024 11:40:05]
+	[04]: intermediate (Stop Number: 2.00) [Time in: 01.12.2024 12:10:01]-[Time out: 01.12.2024 12:13:05]
+[2]: third_bus:
+		1
+	[00]: start (Stop Number: 2.00) [Time in: 01.12.2024 13:10:01]-[Time out: 01.12.2024 13:13:05]

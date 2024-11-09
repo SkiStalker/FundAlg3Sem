@@ -1,0 +1,5 @@
+Hello, I can use next operations: 
+Print MostRoutes LeastRoutes LongestPath ShortestPath LongestRoute ShortestRoute LongestStop ShortestStop MaxWait 
+
+I don`t know this operation: [r]
+Use only one from supported operations: Print, MostRoutes, LeastRoutes, LongestPath, ShortestPath, LongestRoute, ShortestRoute, LongestStop, ShortestStop, MaxWait, 

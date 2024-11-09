@@ -1,0 +1,13 @@
+один   2
+два   5
+null
+null
+три   1
+пять   1
+один^один   1
+null
+null
+null
+четыре   1
+null
+null

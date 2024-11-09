@@ -1,0 +1,7 @@
+Hello, I can use next operations: 
+Add Remove Sort Print Id Delivered NotDelivered 
+Format for add data: city;street;building;block;flat;id_addr;weight;id_post;create;receive
+Example: City;Street;1;one;1;123456;1;12345678912345;01:01:2024 01:01:01;02:02:2024 02:02:02;
+
+
+New data added

@@ -1,0 +1,2 @@
+Hello, I can use next operations: 
+Print MostRoutes LeastRoutes LongestPath ShortestPath LongestRoute ShortestRoute LongestStop ShortestStop MaxWait 
