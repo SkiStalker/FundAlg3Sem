@@ -1,0 +1,28 @@
+Available commands:
+1. Bus with the biggest amount of routes
+2. Bus with the smallest amount of routes
+3. Bus with longest path
+4. Bus with shortest path
+5. Bus with longest route
+6. Bus with shortest route
+7. Bus with longest stop
+8. Bus with shortest stop
+9. Exit
+
+Enter command: Bus #15 traveled the most routes: 2
+
+Enter command: Bus #21 traveled the least routes: 1
+
+Enter command: Bus #15 traveled the biggest path: 8
+
+Enter command: Bus #21 traveled the smallest path: 4
+
+Enter command: Bus #15 traveled the longest route: 5
+
+Enter command: Bus #15 traveled the shortest route: 3
+
+Enter command: Bus #15 had longest stop for 08:00:59 on <5> station
+
+Enter command: Bus #15 had shortest stop for 00:00:54 on <1> station
+
+Enter command: 

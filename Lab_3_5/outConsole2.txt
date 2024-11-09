@@ -1,0 +1,4 @@
+Find using
+Enter one of variants (id | name | surname | group | no): print name: Sort by
+Enter one of variants (id | name | surname | group | no): Do you need students that have average mark above average mark of all students
+Your answer (y \ n): Done

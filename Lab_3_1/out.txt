@@ -1,0 +1,20 @@
+Invalid base number: 0.
+Invalid base number: 1.
+Invalid base number: 3.
+Invalid base number: 33.
+Invalid base number: -1.
+Number 25 in <2> number system is: 11001
+Number 25 in <4> number system is: 121
+Number 25 in <8> number system is: 31
+Number 25 in <16> number system is: 19
+Number 25 in <32> number system is: P
+Number 152 in <2> number system is: 10011000
+Number 152 in <4> number system is: 2120
+Number 152 in <8> number system is: 230
+Number 152 in <16> number system is: 98
+Number 152 in <32> number system is: 4O
+Number 251 in <2> number system is: 11111011
+Number 251 in <4> number system is: 3323
+Number 251 in <8> number system is: 373
+Number 251 in <16> number system is: FB
+Number 251 in <32> number system is: 7R
