@@ -1,0 +1,5 @@
+1 John Doe GroupA 5 4 3 5 4
+2 Jane Smith GroupB 4 5 5 4 5
+3 Alice Johnson GroupA 3 4 5 4 3
+4 Bob Williams GroupC 5 5 5 5 5
+5 Charlie Brown GroupB 4 4 4 4 4

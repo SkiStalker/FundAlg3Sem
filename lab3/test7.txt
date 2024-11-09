@@ -1,0 +1,10 @@
+Smith John Robert 15.03.1985 M 2500.75
+Johnson Emily Anne 22.07.1990 W 3000.50
+Brown Michael David 10.11.1978 M 2200.00
+Williams Sarah Elizabeth 05.09.1982 W 2800.25
+Jones David Michael 18.04.1995 M 2600.00
+Miller Laura Jane 30.12.1987 W 3100.75
+Davis James William 12.06.1975 M 2400.50
+Garcia Maria Elena 25.08.1992 W 2900.00
+Rodriguez Jose Carlos 07.02.1980 M 2300.25
+Martinez Ana Sofia 14.10.1989 W 3200.00

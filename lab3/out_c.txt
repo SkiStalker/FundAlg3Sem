@@ -1,0 +1,42 @@
+0 - load data to file
+1 - sort by id
+2 - sort by name
+3 - sort by surname
+4 - sort by group
+5 - find by id
+6 - find by name
+7 - find by surname
+8 - find by group
+H - help
+S - Stop
+Loaded
+Sorted
+Loaded
+Sorted
+Loaded
+Sorted
+Loaded
+Sorted
+Loaded
+Input id... What do you want:
+0 - add to the file data about the student
+1 - add to the file info about higher marked students
+Found students were added to the file
+Input id... What do you want:
+0 - add to the file data about the student
+1 - add to the file info about higher marked students
+Found students were added to the file
+Input name... Found students were added to the file
+Input surname... Found students were added to the file
+Input group... Found students were added to the file
+0 - load data to file
+1 - sort by id
+2 - sort by name
+3 - sort by surname
+4 - sort by group
+5 - find by id
+6 - find by name
+7 - find by surname
+8 - find by group
+H - help
+S - Stop

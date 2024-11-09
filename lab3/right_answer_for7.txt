@@ -1,0 +1,92 @@
+What do you want to do?
+0 - print all data
+1 - add cityzen
+2 - delete cityzen
+3 - overwrite info about the cityzen
+U - undo
+H - help
+S - Stop
+________________________________
+Jones David Michael 18.04.1995 M 2600.000000
+Garcia Maria Elena 25.08.1992 W 2900.000000
+Johnson Emily Anne 22.07.1990 W 3000.500000
+Martinez Ana Sofia 14.10.1989 W 3200.000000
+Miller Laura Jane 30.12.1987 W 3100.750000
+Smith John Robert 15.03.1985 M 2500.750000
+Rodriguez Jose Carlos 07.02.1980 M 2300.250000
+Brown Michael David 10.11.1978 M 2200.000000
+Williams Sarah Elizabeth 05.09.1982 W 2800.250000
+Davis James William 12.06.1975 M 2400.500000
+________________________________
+Write all data about the cityzen you want to add
+Right format:
+<Name> <Surname> <Fathername (if no fathername then '-')> <Birth date (day.month.year)> <Gender (M or W)> <salary>
+________________________________
+Jones David Michael 18.04.1995 M 2600.000000
+Garcia Maria Elena 25.08.1992 W 2900.000000
+Johnson Emily Anne 22.07.1990 W 3000.500000
+Martinez Ana Sofia 14.10.1989 W 3200.000000
+Miller Laura Jane 30.12.1987 W 3100.750000
+Smith John Robert 15.03.1985 M 2500.750000
+Rodriguez Jose Carlos 07.02.1980 M 2300.250000
+John Doe - 01.01.1980 M 50000.000000
+Brown Michael David 10.11.1978 M 2200.000000
+Williams Sarah Elizabeth 05.09.1982 W 2800.250000
+Davis James William 12.06.1975 M 2400.500000
+________________________________
+Write all data about the cityzen you want to delete
+Right format:
+<Name> <Surname> <Fathername (if no fathername then '-')> <Birth date (day.month.year)> <Gender (M or W)> <salary>
+________________________________
+Jones David Michael 18.04.1995 M 2600.000000
+Garcia Maria Elena 25.08.1992 W 2900.000000
+Johnson Emily Anne 22.07.1990 W 3000.500000
+Martinez Ana Sofia 14.10.1989 W 3200.000000
+Miller Laura Jane 30.12.1987 W 3100.750000
+Smith John Robert 15.03.1985 M 2500.750000
+Rodriguez Jose Carlos 07.02.1980 M 2300.250000
+Brown Michael David 10.11.1978 M 2200.000000
+Williams Sarah Elizabeth 05.09.1982 W 2800.250000
+Davis James William 12.06.1975 M 2400.500000
+________________________________
+________________________________
+Jones David Michael 18.04.1995 M 2600.000000
+Garcia Maria Elena 25.08.1992 W 2900.000000
+Johnson Emily Anne 22.07.1990 W 3000.500000
+Martinez Ana Sofia 14.10.1989 W 3200.000000
+Miller Laura Jane 30.12.1987 W 3100.750000
+Smith John Robert 15.03.1985 M 2500.750000
+Rodriguez Jose Carlos 07.02.1980 M 2300.250000
+John Doe - 01.01.1980 M 50000.000000
+Brown Michael David 10.11.1978 M 2200.000000
+Williams Sarah Elizabeth 05.09.1982 W 2800.250000
+Davis James William 12.06.1975 M 2400.500000
+________________________________
+Write all data about the cityzen you want to change
+Right format:
+<Name> <Surname> <Fathername (if no fathername then '-')> <Birth date (day.month.year)> <Gender (M or W)> <salary>
+Write all changed data about the selected cityzen
+Right format:
+<Name> <Surname> <Fathername (if no fathername then '-')> <Birth date (day.month.year)> <Gender (M or W)> <salary>
+________________________________
+John Doe - 01.03.2002 M 10000.000000
+Jones David Michael 18.04.1995 M 2600.000000
+Garcia Maria Elena 25.08.1992 W 2900.000000
+Johnson Emily Anne 22.07.1990 W 3000.500000
+Martinez Ana Sofia 14.10.1989 W 3200.000000
+Miller Laura Jane 30.12.1987 W 3100.750000
+Smith John Robert 15.03.1985 M 2500.750000
+Rodriguez Jose Carlos 07.02.1980 M 2300.250000
+Brown Michael David 10.11.1978 M 2200.000000
+Williams Sarah Elizabeth 05.09.1982 W 2800.250000
+Davis James William 12.06.1975 M 2400.500000
+________________________________
+What do you want to do?
+0 - print all data
+1 - add cityzen
+2 - delete cityzen
+3 - overwrite info about the cityzen
+U - undo
+H - help
+S - Stop
+Exit

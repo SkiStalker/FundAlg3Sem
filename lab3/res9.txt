@@ -1,0 +1,10 @@
+Longest vectors of 0-th norm: 
+15.000000 22.000000 33.000000 
+-1.000000 33.000000 0.000000 
+
+Longest vectors of 1-th norm: 
+1.000000 2.000000 3.000000 
+
+Longest vectors of 2-th norm: 
+15.000000 22.000000 33.000000 
+

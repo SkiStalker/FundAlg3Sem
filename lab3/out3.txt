@@ -1,0 +1,5 @@
+1 John Doe 5000.500000
+3 Alice Johnson 5000.500000
+5 Charlie Brown 6000.750000
+2 Jane Smith 6000.750000
+4 Bob Williams 7000.000000

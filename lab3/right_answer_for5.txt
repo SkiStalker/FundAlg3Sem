@@ -1,0 +1,63 @@
+1 John Doe GroupA 5 4 3 5 4
+2 Jane Smith GroupB 4 5 5 4 5
+3 Alice Johnson GroupA 3 4 5 4 3
+4 Bob Williams GroupC 5 5 5 5 5
+5 Charlie Brown GroupB 4 4 4 4 4
+5 Charlie Brown GroupB 0 0 0 0 0
+--------------------
+1 John Doe GroupA 5 4 3 5 4
+2 Jane Smith GroupB 4 5 5 4 5
+3 Alice Johnson GroupA 3 4 5 4 3
+4 Bob Williams GroupC 5 5 5 5 5
+5 Charlie Brown GroupB 4 4 4 4 4
+5 Charlie Brown GroupB 0 0 0 0 0
+--------------------
+3 Alice Johnson GroupA 3 4 5 4 3
+4 Bob Williams GroupC 5 5 5 5 5
+5 Charlie Brown GroupB 4 4 4 4 4
+5 Charlie Brown GroupB 0 0 0 0 0
+2 Jane Smith GroupB 4 5 5 4 5
+1 John Doe GroupA 5 4 3 5 4
+--------------------
+5 Charlie Brown GroupB 4 4 4 4 4
+5 Charlie Brown GroupB 0 0 0 0 0
+1 John Doe GroupA 5 4 3 5 4
+3 Alice Johnson GroupA 3 4 5 4 3
+2 Jane Smith GroupB 4 5 5 4 5
+4 Bob Williams GroupC 5 5 5 5 5
+--------------------
+1 John Doe GroupA 5 4 3 5 4
+3 Alice Johnson GroupA 3 4 5 4 3
+5 Charlie Brown GroupB 4 4 4 4 4
+5 Charlie Brown GroupB 0 0 0 0 0
+2 Jane Smith GroupB 4 5 5 4 5
+4 Bob Williams GroupC 5 5 5 5 5
+--------------------
+Found student:
+Alice Johnson GroupA 3.800000
+--------------------
+Found students:
+	Alice Johnson GroupA 3.800000
+These are students with higher average marks than the highest of found:
+	John Doe GroupA 4.200000
+	Charlie Brown GroupB 4.000000
+	Jane Smith GroupB 4.600000
+	Bob Williams GroupC 5.000000
+--------------------
+Found students:
+	Jane Smith GroupB 4.600000
+These are students with higher average marks than the highest of found:
+	Bob Williams GroupC 5.000000
+--------------------
+Found students:
+	Jane Smith GroupB 4.600000
+These are students with higher average marks than the highest of found:
+	Bob Williams GroupC 5.000000
+--------------------
+Found students:
+	John Doe GroupA 4.200000
+	Alice Johnson GroupA 3.800000
+These are students with higher average marks than the highest of found:
+	Jane Smith GroupB 4.600000
+	Bob Williams GroupC 5.000000
+--------------------
