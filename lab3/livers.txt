@@ -1,0 +1,27 @@
+Smith
+John
+James
+15 6 1985
+M
+4500.50
+
+Brown
+Mary
+Ann
+23 3 1990
+W
+3200.75
+
+Johnson
+Michael
+-
+8 12 1982
+M
+5100.30
+
+Taylor
+Linda
+-
+1 1 1995
+W
+2800.00
