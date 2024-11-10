@@ -1,0 +1,4 @@
+123 ivanov petr m6o-213 2 3 3 4 5
+12 petrov ivan m6s-233 3 3 3 4 5
+121 abricosov boris 333a 5 5 5 4 5
+3 sidorov anton asd23f 4 4 3 4 5
