@@ -1,0 +1,14 @@
+Surname: Rurkin;
+Name: Igor;
+Patronymic: Andreevich;
+Birth date: 07.06.2000;
+Sex: M;
+Income: 560.000;
+
+Surname: Test;
+Name: Test;
+Patronymic: Test;
+Birth date: 01.01.2020;
+Sex: M;
+Income: 203.000;
+
