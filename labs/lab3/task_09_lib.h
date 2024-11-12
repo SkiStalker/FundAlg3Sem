@@ -242,7 +242,9 @@ int _push_to_list(Leaf *r, const Tree *t, size_t *i) {
 int leaf_cmp(const void *p_a, const void *p_b) {
     const Leaf *a = p_a;
     const Leaf *b = p_b;
-    return a->cnt > b->cnt ? -1 : a->cnt != b->cnt;
+    if (a->cnt == b->cnt)
+        return strcmp(a->s, b->s);
+    return a->cnt < b->cnt ? 1 : -1;
 }
 
 int tree_dump_to_sorted_list(Leaf **r, const Tree *t) {

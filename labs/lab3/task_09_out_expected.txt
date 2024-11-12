@@ -1,14 +1,14 @@
 10 most common words:
 "sunt": 4
-"natus": 3
-"ut": 3
-"quia": 3
-"voluptatibus": 3
-"sit": 3
-"voluptas": 3
 "et": 3
-"non.": 2
-"beatae": 2
+"natus": 3
+"quia": 3
+"sit": 3
+"ut": 3
+"voluptas": 3
+"voluptatibus": 3
+"Et": 2
+"Ut": 2
 sunt is found 4 times
 natus is found 3 times
 longest word: "reprehenderit"
