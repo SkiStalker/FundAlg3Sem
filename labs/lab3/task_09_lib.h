@@ -54,11 +54,8 @@ size_t getword(char **res, size_t *cap, FILE *f, const char *sep) {
     }
     size_t i = 0;
     bool found = false;
-    while (!found) {
+    while (!feof(f) && !found) {
         char c = fgetc(f);
-        if (c == 0 || c == EOF)
-            break;
-
         for (const char *s = sep; *s && !found; s++)
             found = found || c == *s;
 
