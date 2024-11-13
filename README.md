@@ -10,6 +10,7 @@
     1. [№1](#1)
     2. [№2](#2)
     3. [№3](#3)
+    4. [№4](#4)
 
 ## Важные ссылки
 - [Таблица с результатами сдачи](https://docs.google.com/spreadsheets/d/1rtPmdYJtlkvIajOST0LYesvfwspxoClLx1zNEmBY5O8/edit?usp=sharing)
@@ -357,3 +358,6 @@
 
 ### №3
 [Файл](./Lab3.pdf) с заданием. </br> Дедлайн 08.11.2024
+
+### №4
+[Файл](./Lab4.pdf) с заданием.
