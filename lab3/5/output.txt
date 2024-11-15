@@ -1,0 +1,6 @@
+ID: 54
+ФИО: kek lol 211
+average: 2.800000
+best students:
+name: abac aba, group: 211, average grade: 4.00
+name: eva ki, group: 213, average grade: 4.60
