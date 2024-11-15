@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
         return FILE_OPENNING_ERROR;
     }
 
-    interactive_dialog(root, separators);
+    interactive_dialog(root);
 
     free_tree(root);
 

@@ -42,7 +42,7 @@ return_code save_tree_to_file(Node* root, const char* filename);
 
 int is_separator(char ch, char* separators[], int sep_count);
 return_code process_file(const char* filename, char* separators[], int sep_count, Node** result);
-void interactive_dialog(Node* root, char** separators);
+void interactive_dialog(Node* root);
 
 
 

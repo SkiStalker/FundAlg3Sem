@@ -165,6 +165,8 @@ return_code print_top_n_words(Node* root, int n) {
     }
 
     free(nodes);
+
+    return OK;
 }
 
 
@@ -199,7 +201,7 @@ return_code save_tree_to_file(Node* root, const char* filename) {
     FILE* file = fopen(filename, "w");
     if (!file) {
         printf("Couldn't open file for saving\n");
-        return;
+        return FILE_OPENNING_ERROR;
     }
 
     save_tree(root, file);
@@ -247,7 +249,7 @@ return_code load_tree_from_file(Node** root, const char* filename) {
     FILE* file = fopen(filename, "r");
     if (!file) {
         printf("Couldn't open file for loading\n");
-        return;
+        return FILE_OPENNING_ERROR;
     }
 
     *root = load_tree(file);
@@ -259,9 +261,8 @@ return_code load_tree_from_file(Node** root, const char* filename) {
 
 
 
-void interactive_dialog(Node* root, char** separators) {
+void interactive_dialog(Node* root) {
     int choice;
-    char input[MAX_LENGTH];
 
     while (1) {
         printf("\nchoose:\n");
