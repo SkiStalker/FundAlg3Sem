@@ -1,41 +1,34 @@
 CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+CLIBS = -lm
 
-CFLAGS = -Wall -Wextra -O2
+SOURCES = 1.c 2.c 3.c 4_1.c  4_2.c 5.c 6.c 7.c 8.c 9.c 10.c
+TEST_TEMPLATES_DIR = ../../test_templates
+EXECUTABLES = $(SOURCES:.c=.a)
+BASH = bash
 
-all: 1.exe 2.exe 3.exe 4_1.exe 4_2.exe 5.exe 6.exe 7.exe 8.exe 9.exe 10.exe
+SUCCESS_CMD = $(BASH) $(TEST_TEMPLATES_DIR)/success_cmd
+FAILED_CMD = $(BASH) $(TEST_TEMPLATES_DIR)/failed_cmd
+SUCCESS_RFILE_CMD = $(BASH) $(TEST_TEMPLATES_DIR)/success_rfile_cmd
+SUCCESS_OFILE = $(BASH) $(TEST_TEMPLATES_DIR)/success_ofile
+FAILED_OFILE = $(BASH) $(TEST_TEMPLATES_DIR)/failed_ofile
+SUCCESS_RFILE_OFILE = $(BASH) $(TEST_TEMPLATES_DIR)/success_rfile_ofile
+SUCCESS_IFILE_OFILE = $(BASH) $(TEST_TEMPLATES_DIR)/success_ifile_ofile
+SUCCESS_IFILE_RFILE_OFILE = $(BASH) $(TEST_TEMPLATES_DIR)/success_ifile_rfile_ofile
+FAILED_IFILE_OFILE = $(BASH) $(TEST_TEMPLATES_DIR)/failed_ifile_ofile
+FAILED_IFILE_RFILE_OFILE = $(BASH) $(TEST_TEMPLATES_DIR)/failed_ifile_rfile_ofile
 
-1.exe: 1.c
-	$(CC) $(CFLAGS) -o $@ $<
+.PHONY: all test clean clean-win clean-unix
 
-2.exe: 2.c
-	$(CC) $(CFLAGS) -o $@ $<
+all: $(EXECUTABLES)
 
-3.exe: 3.c
-	$(CC) $(CFLAGS) -o $@ $<
+%.a : %.c
+	$(CC) $(CFLAGS) $< $(CLIBS) -o $@
 
-4_1.exe: 4_1.c
-	$(CC) $(CFLAGS) -o $@ $<
+clean-unix:
+	rm -f *.a
 
-4_2.exe: 4_2.c
-	$(CC) $(CFLAGS) -o $@ $<
+clean-win:
+	del /Q *.a
 
-5.exe: 5.c
-	$(CC) $(CFLAGS) -o $@ $<
-
-6.exe: 6.c
-	$(CC) $(CFLAGS) -o $@ $<
-
-7.exe: 7.c
-	$(CC) $(CFLAGS) -o $@ $<
-
-8.exe: 8.c
-	gcc -o 8 8.c
-
-9.exe: 9.c
-	$(CC) $(CFLAGS) -o $@ $<
-
-10.exe: 10.c
-	$(CC) $(CFLAGS) -o $@ $<
-
-clean:
-	del /Q *.exe
+clean: clean-unix
