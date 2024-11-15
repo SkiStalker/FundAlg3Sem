@@ -1,5 +1,5 @@
 
-SOURCES = solution.c realization.c string_realization.c
+SOURCES = solution.c realization.c
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
