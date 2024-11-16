@@ -7,24 +7,20 @@ return_code is_correct_input(Student student) {
      || strlen(student.group) == 0) {
         return INVALID_INPUT;
     }
-    for (int i = 0; i < strlen(student.name); ++i) {
-        if (student.name[i] >= 'a' && student.name[i] <= 'z' ||
-        student.name[i] >= 'A' && student.name[i] <= 'Z') {
+    for (size_t i = 0; i < strlen(student.name); ++i) {
+        if (student.name[i] >= 'a' || student.name[i] <= 'z' ||
+        student.name[i] >= 'A' || student.name[i] <= 'Z') {
             return INVALID_INPUT;
         }
     }
-    for (int i = 0; i < strlen(student.last_name); ++i) {
+    for (size_t i = 0; i < strlen(student.last_name); ++i) {
 
-        if (student.last_name[i] >= 'a' && student.last_name[i] <= 'z' ||
-        student.last_name[i]<= 'A' && student.last_name[i] <= 'Z') {
+        if (student.last_name[i] >= 'a' || student.last_name[i] <= 'z' ||
+        student.last_name[i]<= 'A' || student.last_name[i] <= 'Z') {
             return INVALID_INPUT;
         }
     }
-    for (int i = 0; i < strlen(student.marks); ++i) {
-        if (!isalnum(student.marks[i])) {
-            return INVALID_INPUT;
-        }
-    }
+    return OK;
 }
 
 return_code upload_info(Student** output_info, int* size, FILE* input_file) {
@@ -33,7 +29,6 @@ return_code upload_info(Student** output_info, int* size, FILE* input_file) {
     Student* tmp = NULL;
     int reading_cnt;
     *size = 0;
-    int cnt_of_marks;
     students = (Student*)malloc(cap * sizeof(Student));
 
     students[*size].marks = (unsigned char*)malloc(MAX_LENGTH_OF_STRING_INCLUDES_MARKS);
@@ -104,7 +99,7 @@ return_code get_student_info_by_parameter(Student* result, char* parameter, char
         case 'i':
             // id
             for (int i = 0; i <= size; ++i) {
-                if (students[i].id == atoi(search_str)) {
+                if (students[i].id == (unsigned int)atoi(search_str)) {
                     *result = students[i];
                     return OK;
                     break;
@@ -232,12 +227,15 @@ void interactive_dialog(Student* students, int size, FILE* output_file) {
     printf("8. sort by group\n");
     printf("9. get the best student\n");
     printf("10. exit\n");
+    char id[MAX_NAME_LENGTH];
+    char lname[MAX_NAME_LENGTH];
+    char name[MAX_NAME_LENGTH];
+    char group[MAX_NAME_LENGTH];
     do {
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
-                char id[MAX_NAME_LENGTH];
                 printf("Enter ID: \n");
                 scanf("%s", id);
                 Student found_1;
@@ -258,7 +256,6 @@ void interactive_dialog(Student* students, int size, FILE* output_file) {
                 break;
 
             case 2:
-                char lname[MAX_NAME_LENGTH];
                 printf("Enter last name: \n");
                 scanf("%s", lname);
                 Student found_2;
@@ -271,7 +268,6 @@ void interactive_dialog(Student* students, int size, FILE* output_file) {
                 break;
 
             case 3:
-                char name[MAX_NAME_LENGTH];
                 printf("Enter name: \n");
                 scanf("%s", name);
                 Student found_3;
@@ -284,7 +280,6 @@ void interactive_dialog(Student* students, int size, FILE* output_file) {
                 break;
 
             case 4:
-                char group[MAX_NAME_LENGTH];
                 printf("Enter group number: \n");
                 scanf("%s", group);
                 Student found_4;

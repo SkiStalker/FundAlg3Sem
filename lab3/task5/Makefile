@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Wextra -pedantic -g -fdiagnostics-color=always
+CFLAGS = -Wall -Wextra -Werror -pedantic -g -fdiagnostics-color=always
 LDFLAGS = -lm
 SRC = functions.c task5.c
 OBJ = $(SRC:.c=.o)

@@ -6,8 +6,7 @@ int main(int argc, char* argv[]) {
     FILE* input_file, *output_file;
     int size = 0;
     Student* students = NULL;
-    char* parameters[] = {"id", "name", "lname", "group"};
-    Student finded_student;
+
 
     if (argc != 3) {
         printf("Invalid amount of arguments\n");
