@@ -1,7 +1,7 @@
 CС=gcc
 CFLAGS= -Wall -Werror -Wextra
 
-SOURCES=lb4task2.c # Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
+SOURCES=lb4task7.c # Тут вы перечислятете файлы с вашими лабами по 1 файлу на задание
 TEST_TEMPLATES_DIR=../test_templates
 EXECUTABLES=$(SOURCES:.c=.a)
 BASH=bash
@@ -60,19 +60,19 @@ test_task_1: test_command_no_args_1 test_command_args_r_invalid_2
 test_task_2: test_command_success_1 test_command_success_2
 
 test_command_no_args_1:
-	@$(FAILED_CMD) "lb4task2.a" 1 "Input error. Enter <program_name><your_program_file>"
+	@$(FAILED_CMD) "lb4task7.a" 1 "Error: Invalid number of arguments."
 	@echo "TEST 1: No arguments provided - Expected failure. Test PASSED."
 
 test_command_args_r_invalid_2:
-	@$(FAILED_CMD) "lb4task2.a in.txt" 5 "File open error"
+	@$(FAILED_CMD) "lb4task7.a in.txt" 5 "File open error"
 	@echo "TEST 2 Invalid argument - Expected failure. Test PASSED."
 
 test_command_success_1:
-	@$(SUCCESS_OFILE) "lb4task2.a ./instructions1.txt" "output1.txt"
+	@$(SUCCESS_OFILE) "lb4task7.a ./input1.txt" "output1.txt"
 	@echo "TEST 3: The operation was successful. Test PASSED."
 
 test_command_success_2:
-	@$(SUCCESS_OFILE) "lb4task2.a ./instructions2.txt" "output2.txt"
+	@$(SUCCESS_OFILE) "lb4task7.a ./input2.txt" "output2.txt"
 	@echo "TEST 4: The operation was successful. Test PASSED."
 
 test: test_task_1 test_task_2

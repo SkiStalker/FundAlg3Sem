@@ -1,0 +1,2 @@
+36
+print all: bg = 1296; ccc = 36; myvar = 36;
