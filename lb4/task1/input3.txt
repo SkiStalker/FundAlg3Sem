@@ -1,0 +1,7 @@
+#define GREETING Hello,
+#define NAME Alice
+#define END_MESSAGE Have a great day!
+
+GREETING NAME!
+How are you today?
+END_MESSAGE

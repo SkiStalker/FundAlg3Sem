@@ -1,0 +1,6 @@
+#define WIDTH 20
+#define HEIGHT 15
+#define AREA WIDTH * HEIGHT
+
+The rectangle has a width of WIDTH and a height of HEIGHT.
+Its area is AREA.

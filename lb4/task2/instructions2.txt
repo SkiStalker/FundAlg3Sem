@@ -1,0 +1,8 @@
+Load A, input3.txt;
+Load B, input4.txt;
+Copy A, 2, 4, C;
+Concat A, B;
+Print A, all;
+Print C, all;
+Free(a);
+Free(c);

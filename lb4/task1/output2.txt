@@ -1,0 +1,20 @@
+Intermediate Text after iteration:
+
+The rectangle has a width of 20 and a height of 15.
+Its area is WIDTH * HEIGHT.
+
+Intermediate Text after iteration:
+
+The rectangle has a width of 20 and a height of 15.
+Its area is 20 * 15.
+
+Intermediate Text after iteration:
+
+The rectangle has a width of 20 and a height of 15.
+Its area is 20 * 15.
+
+Processed Text:
+
+The rectangle has a width of 20 and a height of 15.
+Its area is 20 * 15.
+

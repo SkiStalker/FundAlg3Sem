@@ -1,0 +1,12 @@
+Load A, input1.txt;
+Stats A;
+Sort A+;
+Print A, all;
+Remove A, 2, 3;
+Print A, all;
+Load B, input2.txt;
+Print B, all;
+Concat A, B;
+Print A, all;
+Free(a);
+

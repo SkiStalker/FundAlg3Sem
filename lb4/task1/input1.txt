@@ -1,0 +1,6 @@
+#define PI 3.14
+#define RADIUS 10
+#define AREA PI * RADIUS * RADIUS
+
+The area of a circle with radius RADIUS is AREA.
+The value of PI is PI.
