@@ -61,21 +61,26 @@ public:
 		return a.value == b.value;
 	}
 
-	bool getBit(unsigned int position) const {
+	bool getBit(unsigned int position, bool& bitValue) const {
 		if (position >= sizeof(unsigned int) * 8) {
-			throw std::out_of_range("Bit position out of range");
+			bitValue = false;
+			return false; 
 		}
-		return (value >> position) & 1;
+		bitValue = (value >> position) & 1;
+		return true; 
 	}
 
-	void toBinaryString(char* buffer, size_t size) const {
+
+	bool toBinaryString(char* buffer, size_t size) const {
 		if (size < sizeof(unsigned int) * 8 + 1) {
-			throw std::invalid_argument("Buffer size too small");
+			return false;
 		}
 		bitset<sizeof(unsigned int) * 8> bits(value);
 		string binaryStr = bits.to_string();
 		strcpy(buffer, binaryStr.c_str());
+		return true; 
 	}
+
 };
 
 int main() {
@@ -104,10 +109,22 @@ int main() {
 	cout << "a NAND b = " << result.getValue() << "\n";
 
 	char binaryBuffer[33];
-	a.toBinaryString(binaryBuffer, sizeof(binaryBuffer));
-	cout << "Binary representation of a: " << binaryBuffer << "\n";
+	if (a.toBinaryString(binaryBuffer, sizeof(binaryBuffer))) {
+		cout << "Binary representation of a: " << binaryBuffer << "\n";
+	}
+	else {
+		cout << "Error: Buffer size too small\n";
+	}
 
-	cout << "Bit 2 of a: " << a.getBit(2) << "\n";
+
+	bool bitValue;
+	if (a.getBit(2, bitValue)) {
+		cout << "Bit 2 of a: " << bitValue << "\n";
+	}
+	else {
+		cout << "Error: Bit position out of range\n";
+	}
+
 	cout << "a and b are " << (LogicalValuesArray::equals(a, b) ? "equal" : "not equal") << "\n";
 
 	return 0;

@@ -28,7 +28,7 @@ public:
 	ComplexNumber divide(const ComplexNumber& other) const {
 		double denominator = other.real * other.real + other.imag * other.imag;
 		if (denominator == 0) {
-			throw std::runtime_error("Division by zero");
+			throw runtime_error("Division by zero");
 		}
 		double r = (real * other.real + imag * other.imag) / denominator;
 		double i = (imag * other.real - real * other.imag) / denominator;
@@ -75,7 +75,7 @@ int main() {
 		cout << "\nQuotient: ";
 		quotient.display();
 	}
-	catch (const std::exception& e) {
+	catch (const exception& e) {
 		cout << "\nDivision error: " << e.what();
 	}
 
