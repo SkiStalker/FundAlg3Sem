@@ -520,7 +520,7 @@ int main(int argc, char** argv)
     Variables vars;
     FILE* input;
     String line;
-    ErrorCode err = SUCCESS; // Initialize `err` to avoid undefined behavior
+    ErrorCode err = SUCCESS;
     size_t number_of_string = 0;
 
     input = fopen(input_file, "r");
@@ -600,22 +600,22 @@ int main(int argc, char** argv)
 
     if (err == MEMORY_ERROR)
     {
-        printf("*** Memory error. Line: %zu ***\n", number_of_string);
+        printf("Memory error. Line: %zu\n", number_of_string);
         return MEMORY_ERROR;
     }
     if (err == INPUT_ERROR)
     {
-        printf("*** Input error. Line: %zu ***\n", number_of_string);
+        printf("Input error. Line: %zu\n", number_of_string);
         return INPUT_ERROR;
     }
     if (err == OVERFLOW_ERROR)
     {
-        printf("*** Overflow error. Line: %zu ***\n", number_of_string);
+        printf("Overflow error. Line: %zu\n", number_of_string);
         return OVERFLOW_ERROR;
     }
     if (err == DIVISION_BY_ZERO_ERROR)
     {
-        printf("*** Division by zero. Line: %zu ***\n", number_of_string);
+        printf("Division by zero. Line: %zu\n", number_of_string);
         return DIVISION_BY_ZERO_ERROR;
     }
 
