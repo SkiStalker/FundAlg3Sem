@@ -1,0 +1,7 @@
+11p dog woof 213 5 5 5 5 5
+12 mou$e mouse 215 4 4 4 4 4 
+13 mouse mou$e 215 4 4 4 4 4 
+14 cat meow 214 -1 4 5 4 5
+15 cat meow 214 4 5 4 5
+
+// или пустой файл

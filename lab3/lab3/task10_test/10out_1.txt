@@ -1,0 +1,24 @@
+tree for expression: A (B (E (G, T, R (W, Z)), F(L, M)), C)
+A
+   B
+      E
+         G
+         T
+         R
+            W
+            Z
+      F
+         L
+         M
+   C
+
+tree for expression: A (B (C (D, E), F), G (H, I))
+A
+   B
+      C
+         D
+         E
+      F
+   G
+      H
+      I
