@@ -88,9 +88,8 @@ clean: # Чтобы удалить все исполняемые файлы на
 # Символ @ необходимо писать для подавления лишнего вывода в консоль при выполнении make файла.
 #
 
-
 test_command_args_1:
-	@$(SUCCESS_IFILE_RFILE_OFILE) "Lab4_2.a ./station1.txt ./station2.txt ./station3.txt ./station4.txt ./station5.txt ./station6.txt ./station7.txt ./station8.txt" 0 "inConsole.txt" "outConsole.txt" "out.txt" "outExp.txt"
+	@$(SUCCESS_RFILE_OFILE) "./Lab4_2.a load A ./input.txt stats A save A ./out.txt load B ./input.txt concat A B free A remove B 2 7 load A ./input.txt copy A 4 8 B sort a+ sort a- print a 3 print a 4 6 print a all rand A 12 3 10 shuffle A" "./outConsole.txt" "./out.txt" "./outfile.txt"
 	@echo "TEST 1 PASSED"
 
 

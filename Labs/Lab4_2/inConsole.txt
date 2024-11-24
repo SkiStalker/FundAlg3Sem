@@ -1,0 +1,1 @@
+./Lab4_2.a load A ./input.txt stats A save A ./out.txt load B ./input.txt concat A B free A remove B 2 7 load A ./input.txt copy A 4 8 B sort a+ sort a- print a 3 print a 4 6 print a all rand A 12 3 10 shuffle A

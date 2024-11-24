@@ -1,0 +1,59 @@
+loaded successfully
+Elements of massive A:89 39 23 35 37 27 25 38 235
+
+stats of massive A:
+    size: 9
+    max of mass: 235, ind: 8
+    min of mass: 23, ind: 2
+    the most common element of mass: 235
+    average number of mass: 60.888889
+    max diff: 174.111111
+stats are displayed successfully
+
+saved successfully
+
+loaded successfully
+Elements of massive B:89 39 23 35 37 27 25 38 235
+
+Elements of massive A:89 39 23 35 37 27 25 38 235
+Elements of massive B:89 39 23 35 37 27 25 38 235
+concated successfully
+Elements of massive A:89 39 23 35 37 27 25 38 235 89 39 23 35 37 27 25 38 235
+
+Elements of massive A:89 39 23 35 37 27 25 38 235 89 39 23 35 37 27 25 38 235
+freed successfully
+Elements of massive A:
+
+Elements of massive B:89 39 23 35 37 27 25 38 235
+removed successfully
+Elements of massive B:89 39
+
+loaded successfully
+Elements of massive A:89 39 23 35 37 27 25 38 235
+
+Elements of massive A:89 39 23 35 37 27 25 38 235
+Elements of massive B:89 39
+copied successfully
+Elements of massive A:89 39 23 35 37 27 25 38 235
+Elements of massive B:37 27 25 38 235
+
+Elements of massive A:89 39 23 35 37 27 25 38 235
+sorted successfully
+Elements of massive A:23 25 27 35 37 38 39 89 235
+
+Elements of massive A:23 25 27 35 37 38 39 89 235
+sorted successfully
+Elements of massive A:235 89 39 38 37 35 27 25 23
+
+Element of massive A with index 3: 38
+printed successfully
+
+Elements of massive A [4 : 6]: 37 35 27
+printed successfully
+
+Elements of massive A:235 89 39 38 37 35 27 25 23
+printed successfully
+
+randed successfully
+
+shuffled successfully
