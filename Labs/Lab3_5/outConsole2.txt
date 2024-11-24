@@ -1,0 +1,4 @@
+Find by
+Your answer (id \ name \ surname \ group \ no): print name: Sort by
+Your answer (id \ name \ surname \ group \ no): Do you need students that have average estimate above average estimate of all students
+Your answer (y \ n): Done
