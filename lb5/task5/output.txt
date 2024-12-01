@@ -1,0 +1,4 @@
+declare a as pointer to char
+declare b as pointer to pointer to int
+declare d as array of 10 elements of float
+declare func as pointer to function returning int
