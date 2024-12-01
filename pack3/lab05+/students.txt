@@ -1,0 +1,8 @@
+1 John Doe CS101 85 90 78 92 88
+2 Jane Smith CS102 75 80 70 65 85
+3 Adam Black CS101 76 80 71 87 90
+4 Dana White CS103 80 90 68 70 74
+5 Aaron Cross CS104 92 80 84 82 80
+6 Shon Brady CS102 80 80 80 80 80
+7 Jack Batler CS104 70 72 78 76 74
+

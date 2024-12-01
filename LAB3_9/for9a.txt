@@ -1,0 +1,1 @@
+This is a simple example. This example shows how the program counts words in a file. Words, words, and more words!
