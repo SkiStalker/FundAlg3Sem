@@ -32,7 +32,9 @@ typedef struct {
 
 HashTable* createHashTable(int size) {
     HashTable* hashTable = malloc(sizeof(HashTable));
-    if (!hashTable) return NULL;
+    if (!hashTable) {
+        return NULL;
+    }
     hashTable->table = calloc(size, sizeof(MacroNode*));
     if (!hashTable->table) {
         free(hashTable);
@@ -47,8 +49,12 @@ unsigned int hash(const char* name, int hashSize) {
     unsigned long hashValue = 0;
     while (*name) {
         if (isdigit(*name)) hashValue = hashValue * 62 + (*name - '0');
-        else if (*name >= 'A' && *name <= 'Z') hashValue = hashValue * 62 + (*name - 'A' + 10);
-        else if (*name >= 'a' && *name <= 'z') hashValue = hashValue * 62 + (*name - 'a' + 36);
+        else if (*name >= 'A' && *name <= 'Z') {
+            hashValue = hashValue * 62 + (*name - 'A' + 10);
+        }
+        else if (*name >= 'a' && *name <= 'z') {
+            hashValue = hashValue * 62 + (*name - 'a' + 36);
+        }
         name++;
     }
     return hashValue % hashSize;
@@ -58,8 +64,9 @@ unsigned int hash(const char* name, int hashSize) {
 ErrorCode insertMacro(HashTable* hashTable, const char* name, const char* value) {
     unsigned int index = hash(name, hashTable->size);
     MacroNode* newNode = malloc(sizeof(MacroNode));
-    if (!newNode) return ERROR_MEMORY_ALLOCATION;
-
+    if (!newNode) {
+        return ERROR_MEMORY_ALLOCATION;
+    }
     newNode->name = strdup(name);
     newNode->value = strdup(value);
     newNode->next = hashTable->table[index];
@@ -98,8 +105,9 @@ void freeHashTable(HashTable* hashTable) {
 
 ErrorCode parseFile(const char* filePath, HashTable* hashTable, char** textBuffer) {
     FILE* file = fopen(filePath, "r");
-    if (!file) return ERROR_FILE_NOT_FOUND;
-
+    if (!file) {
+        return ERROR_FILE_NOT_FOUND;
+    }
     char line[256];
     while (fgets(line, sizeof(line), file)) {
         if (strncmp(line, "#define", 7) == 0) {
@@ -181,8 +189,9 @@ int main(int argc, char* argv[]) {
     }
 
     HashTable* hashTable = createHashTable(INITIAL_HASHSIZE);
-    if (!hashTable) return ERROR_MEMORY_ALLOCATION;
-
+    if (!hashTable) {
+        return ERROR_MEMORY_ALLOCATION;
+    }
     char* textBuffer = calloc(1, sizeof(char));
     ErrorCode err = parseFile(argv[1], hashTable, &textBuffer);
     if (err != ERROR_NONE) {

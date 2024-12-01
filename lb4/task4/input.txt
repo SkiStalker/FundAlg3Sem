@@ -1,0 +1,11 @@
+READ(A, 10);
+%value A
+WRITE(A, 2);
+WRITE(A, 10);
+{fddf
+dgfdfg}
+READ(C, 10);
+READ(B, 16);
+A:= C + B;
+WRITE(B, 16);
+A:=\B;
