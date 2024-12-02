@@ -1,0 +1,11 @@
+один   4
+два   4
+null
+два:пять   1
+null
+null
+три   1
+null
+четыре   1
+null
+null
