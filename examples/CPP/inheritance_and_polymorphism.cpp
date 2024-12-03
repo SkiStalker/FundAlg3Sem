@@ -39,7 +39,7 @@ public:
     {
         std::cout << "VParent foo" << std::endl;
     }
-    virtual ~VParent()
+    ~VParent()
     {
         std::cout << "VParent destr" << std::endl;
     }
@@ -58,7 +58,7 @@ public:
         std::cout << "VChild foo" << std::endl;
     }
 
-    ~VChild() override
+    virtual ~VChild()
     {
         std::cout << "VChild destr" << std::endl;
     }

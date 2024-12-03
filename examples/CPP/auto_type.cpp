@@ -4,7 +4,7 @@ using namespace std;
 
 int a = 12;
 
-const int& foo3()
+const int &foo3()
 {
     cout << "foo3" << endl;
     return a;
