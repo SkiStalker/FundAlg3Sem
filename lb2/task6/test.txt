@@ -1,0 +1,49 @@
+Test1
+String: 'This is string: ccc 123 1000 and 4555'
+Output: 3276, 123, 1000, 4555, Thiss; Count scanned: 5
+
+
+Test2
+String: 'This is the number 10: 0010011'
+Output: 10; Count scanned: 1
+
+
+Test3
+String: 'This is the number 10 & 3954: X & MMMCMLIV'
+Output: 10 3954; Count scanned: 2
+
+
+Test4
+String: 'This is float, float and Ro:  1.33, 9.23, XIX'
+Output: 1.330000 9.230000 19; Count scanned: 3
+
+
+Test5
+String: '194394'
+Output: 194394; Count scanned: 1
+
+
+Test1
+String: 'This is string: ccc 123 1000 and 4555'
+Output: 3276, 123, 1000, 4555; Count scanned: 4
+
+
+Test2
+String: 'This is the number 10: 0010011'
+Output: 10; Count scanned: 1
+
+
+Test3
+String: 'This is the number 10 & 3954: X & MMMCMLIV'
+Output: 10 3954; Count scanned: 2
+
+
+Test4
+String: 'This is float, float and Ro:  1.33, 9.23, XIX'
+Output: 1.330000 9.230000 19; Count scanned: 3
+
+
+Test5
+String: '194394'
+Output: 194394; Count scanned: 1
+

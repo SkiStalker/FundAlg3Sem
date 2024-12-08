@@ -1,0 +1,47 @@
+Test 1
+string: '23 -CXX MMMMMMMMMMMMMMMMMMMM Nulla 3.22'; count symbols: 39
+
+Test 2
+string: 'stroka  M'; count symbols: 9
+
+Test 3
+string: 'stroka  MDLXIover'; count symbols: 17
+
+Test 4
+string: 'stroka  MDLXIoverover'; count symbols: 21
+
+Test 5
+string: 'stroka trtedd v'; count symbols: 15
+
+Test 6
+string: 'stroka %'; count symbols: 8
+
+Test 7
+string: 'stroka %111101'; count symbols: 14
+
+Test 8
+string: 'stroka %11'; count symbols: 10
+
+Test 9
+string: 'stroka %111111'; count symbols: 14
+
+Test 10
+string: 'stroka %11'; count symbols: 10
+
+Test 11
+string: 'stroka 123'; count symbols: 10
+
+Test 12
+string: 'stroka -1972'; count symbols: 12
+
+Test 13
+string: 'stroka '; count symbols: 7
+
+Test 14
+string: 'stroka 10011010 10011001 10011001 10011001 10011001 10011001 10111001 0'; count symbols: 71
+
+Test 15
+string: 'stroka 10011010 10011001 10011001 1'; count symbols: 35
+
+Test 16
+string: 'stroka '; count symbols: 7
