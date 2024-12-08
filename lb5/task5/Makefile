@@ -1,0 +1,72 @@
+CXX=g++
+CFLAGS= -Wall -Werror -Wextra -std=c++20
+
+SOURCES=lb5task5.cpp # Тут вы перечисляете файлы с вашими лабами по 1 файлу на задание
+TEST_TEMPLATES_DIR=mnt/c/Users/Вероника/Documents/GitHub/FundAlg3Sem/test_templates
+EXECUTABLES=$(SOURCES:.cpp=.exe)
+BASH=bash
+SUCCESS_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_cmd
+SUCCESS_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/success_ofile
+FAILED_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/failed_cmd
+FAILED_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/failed_ofile
+SUCCESS_RFILE_CMD=$(BASH) $(TEST_TEMPLATES_DIR)/success_rfile_cmd
+SUCCESS_RFILE_OFILE=$(BASH) $(TEST_TEMPLATES_DIR)/success_rfile_ofile
+
+.PHONY: all test clean
+
+all: $(EXECUTABLES) # Чтобы собрать все лабы надо ввести команду make
+
+%.exe : %.cpp
+	$(CXX) $(CFLAGS) $< -o $@
+
+clean: # Чтобы удалить все исполняемые файлы надо ввести команду make clean
+	rm -f *.exe
+
+
+
+# Все тесты разделены на категории по результату работы программы:
+#
+# В случае если вывод в консоль у программы однострочный:
+# 1) Успешный с выводом в консоль (вывод сравнивается со строкой) - $(SUCCESS_CMD)
+# 2) Провальный с выводом в консоль (вывод сравнивается со строкой) - $(FAILED_CMD)
+# 3) Успешный с выводом в консоль и в файл (вывод сравнивается со строкой, а выходной файл с подготовленным файлом) - $(SUCCESS_RFILE_CMD)
+#
+# В случае если вывод в консоль у программы многострочный:
+# 1) Успешный с выводом в консоль (вывод сравнивается со строками из файла) - $(SUCCESS_OFILE)
+# 2) Провальный с выводом в консоль (вывод сравнивается со строками из файла) - $(FAILED_OFILE)
+# 3) Успешный с выводом в консоль и в файл (вывод сравнивается со строками из файла, а выходной файл с подготовленным файлом) - $(SUCCESS_RFILE_OFILE)
+
+
+
+# Использование тестов:
+#
+# 1) $(SUCCESS_CMD) "<вызов исполняемого файла с его аргументами>" "<ожидаемый в консоль вывод>"
+# 2) $(FAILED_CMD) "<вызов исполняемого файла с его аргументами>" "<ожидаемый код возврата отличный от 0>" "<ожидаемый в консоль вывод>"
+# 3) $(SUCCESS_RFILE_CMD) "<вызов исполняемого файла с его аргументами>" "<ожидаемый в консоль вывод>" "<выходной файл>" "<файл с которым должен совпадать выходной файл>"
+#
+# 1) $(SUCCESS_OFILE) "<вызов исполняемого файла с его аргументами>" "<файл с ожидаемым в консоль выводом>"
+# 2) $(FAIED_OFILE) "<вызов исполняемого файла с его аргументами>" "<ожидаемый код возврата отличный от 0>" "<файл с ожидаемым в консоль выводом>"
+# 3) $(SUCCESS_RFILE_OFILE) "<вызов исполняемого файла с его аргументами>" "<файл с ожидаемым в консоль выводом>" "<выходной файл>" "<файл с которым должен совпадать выходной файл>"
+
+
+
+#
+# Ниже приведены примеры тестов. В выводе после теста должна быть краткая информация о том что это был за тест. "TEST N PASSED" это не информативно и принято не будет.
+# Символ @ необходимо писать для подавления лишнего вывода в консоль при выполнении make файла.
+#
+test_task_1: test_command_no_args_1 test_command_args_r_invalid_2 
+test_task_2: test_command_success_1
+
+test_command_no_args_1:
+	@$(FAILED_CMD) "lb5task5" 1 "Usage: ./lb5t5 <input_file>"
+	@echo "TEST 1: No arguments provided - Expected failure. Test PASSED."
+
+test_command_args_r_invalid_2:
+	@$(FAILED_CMD) "lb5task5 in.txt" 1 "Error: Could not open file in.txt"
+	@echo "TEST 2 Invalid argument - Expected failure. Test PASSED."
+
+test_command_success_1:
+	@$(SUCCESS_OFILE) "lb5task5 ./input.txt" "output.txt"
+	@echo "TEST 3: The operation was successful. Test PASSED."
+
+test: test_task_1 test_task_2
