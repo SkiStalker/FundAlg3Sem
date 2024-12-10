@@ -1,0 +1,1 @@
+./a.exe in.txt -a input.txt

@@ -1,0 +1,2 @@
+invalid salary: -900
+cannot read employees
