@@ -1,0 +1,7 @@
+#define PI 3.14
+#define GREETING Hello, World!
+#define VALUE 42
+
+The value of PI is PI.
+GREETING This is a test file with macros.
+VALUE is the answer to life, the universe, and everything.
