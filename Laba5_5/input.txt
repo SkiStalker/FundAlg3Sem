@@ -1,0 +1,9 @@
+char * a;
+int ** b;
+float d[10];
+int (*func)();
+int x;
+invalid_declaration
+int r[3][4];
+int (func)(int*, int**, int***, float (*foo)(int*, char**));
+float t[2][5][1]
