@@ -1,0 +1,9 @@
+char c;
+double ** ptr;
+long arr[20];
+char (*get_char)();
+double y;
+incorrect_declaration
+double mat[5][6];
+double (handler)(double*, long**, short***, int (*operation)(char*, double**));
+char ch[3][4][2];
