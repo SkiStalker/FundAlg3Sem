@@ -30,12 +30,12 @@ int open_sock_and_send_to_server(const char *username, const char *msg, int *soc
     server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
     server_addr.sin_port = htons(12345);
 
-    if (connect(sock, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1)
+    if (connect(*sock, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1)
     {
         goto ext_msg_out;
     }
 
-    if (send(sock, extended_msg, strlen(extended_msg), 0) < 0)
+    if (send(*sock, extended_msg, strlen(extended_msg), 0) < 0)
     {
         goto sock_out;
     }
@@ -44,9 +44,22 @@ int open_sock_and_send_to_server(const char *username, const char *msg, int *soc
     return 0;
 
 sock_out:
-    close(sock);
+    close(*sock);
 ext_msg_out:
     free(extended_msg);
 out:
     return -1;
+}
+
+int main()
+{
+    int sock = 0;
+    if (open_sock_and_send_to_server("My name", "Hello world", &sock))
+    {
+        printf("Error on sending message to server\n");
+        return -1;
+    }
+
+    close(sock);
+    return 0;
 }
