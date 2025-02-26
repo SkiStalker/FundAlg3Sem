@@ -32,7 +32,7 @@ int encrypt_password(const char *password, char **encrypted_password)
     return 0;
 }
 
-int compare_passwords(const char *password, const char *hashed_password)
+int compare_passwords(const char *password, const char *hashed_password, int *compare_res)
 {
 
     int cmp_res = 0;
@@ -46,10 +46,10 @@ int compare_passwords(const char *password, const char *hashed_password)
         return -1;
     }
 
-    cmp_res = strcmp(hashed_password, hashed_entered_password);
+    compare_res = strcmp(hashed_password, hashed_entered_password);
 
     free(enc_ctx);
-    return cmp_res;
+    return 0;
 }
 
 int main()
@@ -83,7 +83,15 @@ int main()
 
     entered_password[strcspn(entered_password, "\n")] = '\0';
 
-    if (compare_passwords(entered_password, hased_pass) == 0)
+    int compare_res = 0;
+
+    if (compare_passwords(entered_password, hased_pass, &compare_res))
+    {
+        perror("crypt");
+        return 1;
+    }
+
+    if (compare_res == 0)
     {
         printf("Пароль верный!\n");
     }
