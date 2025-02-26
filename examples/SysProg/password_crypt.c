@@ -46,7 +46,7 @@ int compare_passwords(const char *password, const char *hashed_password, int *co
         return -1;
     }
 
-    compare_res = strcmp(hashed_password, hashed_entered_password);
+    *compare_res = strcmp(hashed_password, hashed_entered_password);
 
     free(enc_ctx);
     return 0;
