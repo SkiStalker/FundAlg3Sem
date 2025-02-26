@@ -23,7 +23,7 @@ int encrypt_password(const char *password, char **encrypted_password)
         return -1;
     }
 
-    *encrypted_password = (char *)malloc((strlen(tmp_encrypted_password) + 1) * sizeof(char));
+    *encrypted_password = (char *)calloc((strlen(tmp_encrypted_password) + 1), sizeof(char));
 
     strcpy(*encrypted_password, tmp_encrypted_password);
 
