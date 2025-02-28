@@ -6,7 +6,7 @@
     a assumption that the functions, variables, and types described 
     in it will eventually appear somewhere later.
 
-    The actual substitution of functions and types occurs 
+    The actual substitution of functions, vars and types occurs 
     only at the linking stage.
 */
 
