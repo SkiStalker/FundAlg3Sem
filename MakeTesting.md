@@ -1,0 +1,43 @@
+# Тестирование с использованием Makefile
+
+## Описание инструмента
+[Makefile](./examples/Lab1/Makefile) это файл для тесторования лабораторной работы, к которой он логически применим. Его вы берете за основу своего Makefile и редактируете необходимые пункты, а не переписываете все с нуля. </br>Рекомендуется использовать один Makefile на одну лабораторную работу, а не на каждый пункт.</br>
+Внутри данного файла размещены примеры и пояснения использования [bash скриптов](./test_templates/) для тестирования.
+> <picture>
+>   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Mqxx/GitHub-Markdown/main/blockquotes/badge/light-theme/warning.svg">
+>   <img alt="Warning" src="https://raw.githubusercontent.com/Mqxx/GitHub-Markdown/main/blockquotes/badge/dark-theme/warning.svg">
+> </picture><br>
+> <ul> 
+>    <li style="margin-bottom:1rem"> Допускается использование лишь тех bash скриптов, которые приведены в указанной папке;</li>
+>    <li > Копировать bash скрипты в папки со своими лабораторными не надо, используйте относительные пути к ним.</li>
+> </ul>
+<br>
+
+Всего в файле 3 обязательных правила с соответствующими им командами: </br>
+1. Сборка всех .cpp файлов в исполняемые файлы
+    ```bash
+    make
+    ```
+
+2. Очистка всех исполняемых файлов
+    ```bash
+    make clean
+    ```
+
+3. Выполнение тестов:
+    ``` bash
+    make test
+    ```
+
+### Рекомендации
+- Если при выполнении <i>"make test"</i> возникает ошибка <i>"Permission denied"</i> необходимо переместиться в [директорию с тестами](./test_templates/) и применить команду;
+    ```bash
+    sudo chmod +x *
+    ```
+- Пользователям Windows установить [WSL](https://learn.microsoft.com/ru-ru/windows/wsl/install);
+- При разработке тестов проанализировать содержимое тестирующих [bash скриптов](./test_templates/);
+- В случае возникновения ошибки похожей на:
+    ```
+    ../../test_templates/failed_cmd: line 17: syntax error: unexpected end of file
+    ```
+    необходимо сменить вариант перевода строки с CRLF (\r\n) на LF (\n) (версия Windows на версию Linux).
