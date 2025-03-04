@@ -35,11 +35,11 @@ public:
     {
         std::cout << "VParent constr" << std::endl;
     }
-    virtual void foo() 
+    virtual void foo()
     {
         std::cout << "VParent foo" << std::endl;
     }
-    ~VParent()
+    virtual ~VParent()
     {
         std::cout << "VParent destr" << std::endl;
     }

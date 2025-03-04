@@ -9,6 +9,10 @@ public:
     virtual std::size_t walk() = 0;
 };
 
+class WrongWalker : public IWalk {
+
+};
+
 class IBreath {
 public:
     virtual void breath() = 0; 
@@ -46,6 +50,10 @@ public:
 
 int main() {
 
+    // IWalk* w = new IWalk();   // !!!!errors!!!!
+
+    // WrongWalker ww{};  // !!!!errors!!!!
+
     std::vector<IWalk*> walkers;
     std::map<int, IBreath*> breathers; 
 
@@ -68,5 +76,7 @@ int main() {
     for (std::map<int, IBreath*>::iterator iter = breathers.begin(); iter != breathers.end(); iter++) {
         (*iter).second->breath();
     }
+
+
     return 0;
 }

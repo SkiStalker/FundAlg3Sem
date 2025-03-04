@@ -9,11 +9,14 @@ private:
     int sz;
 
 public:
+
     explicit ArrayInt(int sz) // :arr(new int[sz]), sz(sz)
     {
         this->arr = new int[sz];
         this->sz = sz;
     }
+
+
     ArrayInt(const ArrayInt &other)
     {
         if (this->arr)
@@ -76,3 +79,10 @@ public:
         return this->sz;
     }
 };
+
+int main()
+{
+    ArrayInt b{5};
+
+    return 0;
+}

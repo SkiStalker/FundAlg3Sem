@@ -4,6 +4,11 @@ using namespace std;
 
 class Parent
 {
+public:
+    operator float() const
+    {
+        return 0.0;
+    }
 };
 
 class Child: public Parent
@@ -74,13 +79,13 @@ int main()
 
     add((short)1, (short)1); // Выбор перегрузки будет сделан в пользу более широкого типа int
 
-    add(1LL, 1); // 1 аргумент будет урезан c unsigned long long до размера int и будет вызвана перегрузка с int
+    add(1LL, 1); // 1 аргумент будет урезан c long long до размера int и будет вызвана перегрузка с int
 
     // add(1U, 1); Не скомпилится, нельзя подобрать точный вариант перегрузки, подходит как вариант с int, так и вариант с unsigned int
 
     add(1UL, 1U);
 
-    add(1ULL, 1U); // 1 аргумент будет урезан до размера unsigned int и будет вызвана перегрузка с unsigned int
+    add(1ULL, 1U); // 1 аргумент будет урезан до размера unsigned long long и будет вызвана перегрузка с unsigned int
 
     // add(1ULL, 1ULL); // Не скомпилится, нельзя подобрать точный вариант перегрузки, подходят все варианты с целыми числами
 
@@ -100,6 +105,9 @@ int main()
     add(new Parent(), new Child());
 
     add(Child(), 12);
+
+
+    add(*(new Child()), 1.0F);
 
     return 0;
 }
