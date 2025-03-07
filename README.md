@@ -84,6 +84,13 @@
 
 
 ### 4 Семестр
+#### <div id="4_sem_fund">Фундаментальные алгоритмы</div>
+
+##### <div id="4_sem_fund_1">№1</div>
+[Файл](./FundAlgorithms/4Sem/Lab1.md) с заданием.
+
+
+
 #### <div id="4_sem_sys_prog">Системное программирование</div>
 
 ##### <div id="4_sem_sys_prog_1">№1</div>
