@@ -20,6 +20,7 @@
             
         2. [Системное программирование](#4_sem_sys_prog)
             1. [№1](#4_sem_sys_prog_1)
+            2. [№2](#4_sem_sys_prog_2)
 6. [Примеры](#примеры)
 
 ## Важные ссылки
@@ -98,6 +99,9 @@
 
 ##### <div id="4_sem_sys_prog_1">№1</div>
 [Файл](./SysProgramming/4Sem/1.pdf) с заданием. </br> Дедлайн 05.04.2025
+
+##### <div id="4_sem_sys_prog_2">№1</div>
+[Файл](./SysProgramming/4Sem/2.md) с заданием. </br>
 
 ## Примеры
 - [С](./examples/C/)
