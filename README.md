@@ -17,6 +17,7 @@
     2. [4 Семестр](#4-семестр)
         1. [Фундаментальные алгоритмы](#4_sem_fund)
             1. [№1](#4_sem_fund_1)
+            1. [№2](#4_sem_fund_2)
             
         2. [Системное программирование](#4_sem_sys_prog)
             1. [№1](#4_sem_sys_prog_1)
@@ -93,6 +94,9 @@
 ##### <div id="4_sem_fund_1">№1</div>
 [Файл](./FundAlgorithms/4Sem/Lab1.md) с заданием.
 
+##### <div id="4_sem_fund_2">№2</div>
+[Файл](./FundAlgorithms/4Sem/Lab2.md) с заданием.
+
 
 
 #### <div id="4_sem_sys_prog">Системное программирование</div>
@@ -100,7 +104,7 @@
 ##### <div id="4_sem_sys_prog_1">№1</div>
 [Файл](./SysProgramming/4Sem/1.pdf) с заданием. </br> Дедлайн 05.04.2025
 
-##### <div id="4_sem_sys_prog_2">№1</div>
+##### <div id="4_sem_sys_prog_2">№2</div>
 [Файл](./SysProgramming/4Sem/2.md) с заданием. </br>
 
 ## Примеры
