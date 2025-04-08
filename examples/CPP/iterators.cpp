@@ -44,6 +44,7 @@ protected:
         NoConstIterType *ptr = nullptr;
         DynamicArrayIterator(NoConstIterType *ptr) : ptr(ptr) {}
         DynamicArrayIterator(const DynamicArrayIterator &other) = default;
+
     public:
         DynamicArrayIterator(DynamicArrayIterator &&other) = default;
         DynamicArrayIterator operator++()
@@ -72,11 +73,11 @@ protected:
             return tmp;
         }
 
-        bool operator==(const DynamicArrayIterator &other)
+        bool operator==(const DynamicArrayIterator &other) const
         {
             return this->ptr == other.ptr;
         }
-        bool operator!=(const DynamicArrayIterator &other)
+        bool operator!=(const DynamicArrayIterator &other) const
         {
             return !(*this == other);
         };
@@ -95,6 +96,7 @@ protected:
         NoConstIterType *ptr = nullptr;
         DynamicArrayReverseIterator(NoConstIterType *ptr) : ptr(ptr) {}
         DynamicArrayReverseIterator(const DynamicArrayReverseIterator &other) = default;
+
     public:
         DynamicArrayReverseIterator(DynamicArrayReverseIterator &&other) = default;
         DynamicArrayReverseIterator operator++() override
@@ -122,11 +124,11 @@ protected:
             return tmp;
         }
 
-        bool operator==(const DynamicArrayReverseIterator &other) override
+        bool operator==(const DynamicArrayReverseIterator &other) const override
         {
             return this->ptr == other.ptr;
         }
-        bool operator!=(const DynamicArrayReverseIterator &other) override
+        bool operator!=(const DynamicArrayReverseIterator &other) const override
         {
             return !(*this == other);
         };
@@ -204,7 +206,7 @@ public:
         if (this->len >= this->cap)
         {
             this->cap *= 2;
-            T *tmp_arr = (T *)realloc(this->arr, this->cap * sizeof(T));
+            T *tmp_arr = static_cast<T *>(realloc(this->arr, this->cap * sizeof(T)));
             if (!tmp_arr)
             {
                 throw std::bad_alloc();
@@ -240,7 +242,7 @@ public:
         if (this->cap > 10 && this->len < (this->cap / 2))
         {
             this->cap /= 2;
-            T *tmp_arr = (T *)realloc(this->arr, this->cap * sizeof(T));
+            T *tmp_arr = static_cast<T *>(realloc(this->arr, this->cap * sizeof(T)));
             if (!tmp_arr)
             {
                 throw std::bad_alloc();
