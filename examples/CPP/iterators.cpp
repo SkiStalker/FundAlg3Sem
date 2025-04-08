@@ -2,15 +2,12 @@
 #include <iterator>
 #include <vector>
 #include <stdexcept>
-#include <type_traits>
+#include <iostream>
 
-// Если мы уберем указатели у возвращаемых итераторов все развалится
-// так как у нас нет ковариантности по возвращаемому значению для НЕ
-// указателей (только указатель можно привести к родительскому классу)
 //
-//
-//
-//
+// Так как у нас нет ковариантности по возвращаемому значению для НЕ
+// указателей (только указатель можно привести к родительскому классу),
+// то сделать методы *begin и *end у родителя и наследника нельзя
 //
 
 template <class T>
@@ -42,10 +39,11 @@ protected:
     class DynamicArrayIterator
     {
     protected:
+        friend class DynamicArray;
         using NoConstIterType = std::remove_const_t<IterType>;
         NoConstIterType *ptr = nullptr;
         DynamicArrayIterator(NoConstIterType *ptr) : ptr(ptr) {}
-
+        DynamicArrayIterator(const DynamicArrayIterator &other) = default;
     public:
         DynamicArrayIterator(DynamicArrayIterator &&other) = default;
         DynamicArrayIterator operator++()
@@ -53,6 +51,7 @@ protected:
             this->ptr++;
             return *this;
         }
+
         DynamicArrayIterator operator++(int)
         {
             DynamicArrayIterator tmp = *this;
@@ -73,11 +72,11 @@ protected:
             return tmp;
         }
 
-        DynamicArrayIterator operator==(const DynamicArrayIterator &other)
+        bool operator==(const DynamicArrayIterator &other)
         {
             return this->ptr == other.ptr;
         }
-        DynamicArrayIterator operator!=(const DynamicArrayIterator &other)
+        bool operator!=(const DynamicArrayIterator &other)
         {
             return !(*this == other);
         };
@@ -91,10 +90,11 @@ protected:
     class DynamicArrayReverseIterator
     {
     protected:
+        friend class DynamicArray;
         using NoConstIterType = std::remove_const_t<IterType>;
         NoConstIterType *ptr = nullptr;
         DynamicArrayReverseIterator(NoConstIterType *ptr) : ptr(ptr) {}
-
+        DynamicArrayReverseIterator(const DynamicArrayReverseIterator &other) = default;
     public:
         DynamicArrayReverseIterator(DynamicArrayReverseIterator &&other) = default;
         DynamicArrayReverseIterator operator++() override
@@ -122,11 +122,11 @@ protected:
             return tmp;
         }
 
-        DynamicArrayReverseIterator operator==(const DynamicArrayReverseIterator &other) override
+        bool operator==(const DynamicArrayReverseIterator &other) override
         {
             return this->ptr == other.ptr;
         }
-        DynamicArrayReverseIterator operator!=(const DynamicArrayReverseIterator &other) override
+        bool operator!=(const DynamicArrayReverseIterator &other) override
         {
             return !(*this == other);
         };
@@ -135,9 +135,6 @@ protected:
             return *this->ptr;
         }
     };
-
-    friend class DynamicArrayIterator<T>;
-    friend class DynamicArrayReverseIterator<T>;
 
     std::size_t len = 0;
     std::size_t cap = 0;
@@ -260,7 +257,7 @@ public:
     }
     Iterator end()
     {
-        return Iterator(this->arr + this->sz);
+        return Iterator(this->arr + this->len);
     }
 
     ConstIterator cbegin()
@@ -269,12 +266,12 @@ public:
     }
     ConstIterator cend()
     {
-        return ConstIterator(this->arr + this->sz);
+        return ConstIterator(this->arr + this->len);
     }
 
     ReverseIterator rbegin()
     {
-        return ReverseIterator(this->arr + this->sz - 1);
+        return ReverseIterator(this->arr + this->len - 1);
     }
     ReverseIterator rend()
     {
@@ -283,7 +280,7 @@ public:
 
     ConstReverseIterator crbegin()
     {
-        return ConstReverseIterator(this->arr + this->sz - 1);
+        return ConstReverseIterator(this->arr + this->len - 1);
     }
     ConstReverseIterator crend()
     {
@@ -303,5 +300,11 @@ int main()
     d.append(1);
     d.append(1);
     d.append(1);
+
+    for (const auto &iter : d)
+    {
+        std::cout << iter << std::endl;
+    }
+
     return 0;
 }
