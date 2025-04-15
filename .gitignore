@@ -5,3 +5,4 @@
 **/*.out
 **/main
 my_examples/**
+**/build
