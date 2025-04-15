@@ -35,6 +35,8 @@ template <class T>
 class DynamicArray : public MyContainer<T>
 {
 protected:
+    using NoConstT = std::remove_const_t<T>;
+
     template <class IterType>
     class DynamicArrayIterator
     {
@@ -140,7 +142,7 @@ protected:
 
     std::size_t len = 0;
     std::size_t cap = 0;
-    T *arr = nullptr;
+    NoConstT *arr = nullptr;
 
 public:
     using Iterator = DynamicArrayIterator<T>;
@@ -149,7 +151,7 @@ public:
     using ReverseIterator = DynamicArrayReverseIterator<T>;
     using ConstReverseIterator = DynamicArrayReverseIterator<const T>;
 
-    DynamicArray() : len(0), cap(20), arr(new T[this->cap]) {}
+    DynamicArray() : len(0), cap(20), arr(new NoConstT[this->cap]) {}
     ~DynamicArray()
     {
         delete[] this->arr;
@@ -206,7 +208,7 @@ public:
         if (this->len >= this->cap)
         {
             this->cap *= 2;
-            T *tmp_arr = static_cast<T *>(realloc(this->arr, this->cap * sizeof(T)));
+            NoConstT *tmp_arr = static_cast<NoConstT *>(realloc(this->arr, this->cap * sizeof(T)));
             if (!tmp_arr)
             {
                 throw std::bad_alloc();
@@ -242,7 +244,7 @@ public:
         if (this->cap > 10 && this->len < (this->cap / 2))
         {
             this->cap /= 2;
-            T *tmp_arr = static_cast<T *>(realloc(this->arr, this->cap * sizeof(T)));
+            NoConstT *tmp_arr = static_cast<NoConstT *>(realloc(this->arr, this->cap * sizeof(T)));
             if (!tmp_arr)
             {
                 throw std::bad_alloc();
@@ -292,7 +294,7 @@ public:
 
 int main()
 {
-    DynamicArray<int> d;
+    DynamicArray<const int> d;
 
     d.append(1);
     d.append(1);
@@ -300,12 +302,9 @@ int main()
     d.append(1);
     d.append(1);
     d.append(1);
-    d.append(1);
-    d.append(1);
 
-    for (const auto &iter : d)
-    {
-        std::cout << iter << std::endl;
+    for (DynamicArray<const int>::ConstIterator iter = d.begin(); iter != d.end(); ++iter) {
+        std::cout << *iter << std::endl;
     }
 
     return 0;
