@@ -21,11 +21,11 @@ public:
 
     virtual void clear() = 0;
 
-    virtual T at(std::size_t ind) = 0;
-    virtual const T at(std::size_t ind) const = 0;
+    virtual T& at(std::size_t ind) = 0;
+    virtual const T& at(std::size_t ind) const = 0;
 
-    virtual T operator[](std::size_t ind) = 0;
-    virtual const T operator[](std::size_t ind) const = 0;
+    virtual T& operator[](std::size_t ind) = 0;
+    virtual const T& operator[](std::size_t ind) const = 0;
 
     virtual T &append(const T &value) = 0;
     virtual T remove(const T &value) = 0;
@@ -165,7 +165,7 @@ public:
         this->len = 0;
     }
 
-    T at(std::size_t ind) override
+    T& at(std::size_t ind) override
     {
         if (ind < this->len)
         {
@@ -177,7 +177,7 @@ public:
         }
     }
 
-    const T at(std::size_t ind) const override
+    const T& at(std::size_t ind) const override
     {
 
         if (ind < this->len)
@@ -190,11 +190,11 @@ public:
         }
     }
 
-    T operator[](std::size_t ind) override
+    T& operator[](std::size_t ind) override
     {
         return this->arr[ind];
     }
-    const T operator[](std::size_t ind) const override
+    const T& operator[](std::size_t ind) const override
     {
         return this->arr[ind];
     }
