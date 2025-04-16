@@ -33,7 +33,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 # Создаём отдельный исполняемый файл для тестов
-file(GLOB_RECURSE TEST_FILES CONFIGURE_DEPENDS test/*.cpp)
+file(GLOB_RECURSE TEST_FILES CONFIGURE_DEPENDS tests/*.cpp)
 add_executable(tests ${TEST_FILES})
 target_link_libraries(tests PRIVATE my_lib GTest::gtest_main)
 
@@ -51,7 +51,7 @@ find_program(GENHTML genhtml)
 if(LCOV AND GENHTML)
     add_custom_target(coverage
         COMMAND ${LCOV} --capture --directory . --ignore-errors mismatch --output-file coverage.info
-        COMMAND ${LCOV} --remove coverage.info /usr/* */googletest/* */test/* --output-file coverage_filtered.info
+        COMMAND ${LCOV} --remove coverage.info /usr/* */googletest/* */tests/* --output-file coverage_filtered.info
         COMMAND ${GENHTML} coverage_filtered.info --output-directory coverage_report
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
         COMMENT "Генерация отчёта покрытия кода..."
