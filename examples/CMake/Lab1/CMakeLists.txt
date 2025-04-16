@@ -5,12 +5,12 @@ include(CTest)
 enable_testing()
 
 # Флаги компиляции
-add_compile_options(-Wall -Wextra -Wpedantic -Werror -fsanitize=address -fsanitize=leak)
+add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
 # Флаги для покрытия кода (активны только в Debug)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    add_compile_options(--coverage -fprofile-arcs -ftest-coverage)
-    add_link_options(--coverage -fprofile-arcs -ftest-coverage)
+    add_compile_options(--coverage -fprofile-arcs -ftest-coverage -fsanitize=address -fsanitize=leak)
+    add_link_options(--coverage -fprofile-arcs -ftest-coverage -fsanitize=address -fsanitize=leak)
 endif()
 
 # Добавляем GoogleTest
@@ -44,21 +44,23 @@ endif()
 # Регистрируем тесты
 add_test(NAME MyTests COMMAND tests)
 
-# Добавляем цель для покрытия кода
-find_program(LCOV lcov)
-find_program(GENHTML genhtml)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    # Добавляем цель для покрытия кода
+    find_program(LCOV lcov)
+    find_program(GENHTML genhtml)
 
-if(LCOV AND GENHTML)
-    add_custom_target(coverage
-        COMMAND ${LCOV} --capture --directory . --ignore-errors mismatch --output-file coverage.info
-        COMMAND ${LCOV} --remove coverage.info /usr/* */googletest/* */tests/* --output-file coverage_filtered.info
-        COMMAND ${GENHTML} coverage_filtered.info --output-directory coverage_report
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-        COMMENT "Генерация отчёта покрытия кода..."
-        VERBATIM
-    )
-else()
-    message(WARNING "lcov или genhtml не найдены, цель 'coverage' недоступна.")
+    if(LCOV AND GENHTML)
+        add_custom_target(coverage
+            COMMAND ${LCOV} --capture --directory . --ignore-errors mismatch --output-file coverage.info
+            COMMAND ${LCOV} --remove coverage.info /usr/* */googletest/* */tests/* --output-file coverage_filtered.info
+            COMMAND ${GENHTML} coverage_filtered.info --output-directory coverage_report
+            WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+            COMMENT "Генерация отчёта покрытия кода..."
+            VERBATIM
+        )
+    else()
+        message(WARNING "lcov или genhtml не найдены, цель 'coverage' недоступна.")
+    endif()
 endif()
 
 # Добавляем цель для анализа кода cppcheck

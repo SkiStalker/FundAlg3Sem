@@ -20,9 +20,9 @@ sudo apt install lcov cppcheck libgtest-dev cmake
 1. Вы перемещаетесь в терминале в корень пункта лабораторной работы;
 2. Настраиваете проект:
     ```bash
-    cmake -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc -DCMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++ --no-warn-unused-cli -S./ -B./build -G "Unix Makefiles"
+    cmake -DCMAKE_BUILD_TYPE:STRING=Debug -S./ -B./build
     ```
-    Страшные параметры это настройка вашего окружения: компиляторов, рабочих папок и т.д;
+    Флаг "-DCMAKE_BUILD_TYPE:STRING=Debug" нужен для включения отладочной информации в сборку. Без него coverage работать не будет;
 3. Собираете проект:
     ```bash
     cmake --build build
