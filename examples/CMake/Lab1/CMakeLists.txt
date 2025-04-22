@@ -5,12 +5,15 @@ include(CTest)
 enable_testing()
 
 # Флаги компиляции
-add_compile_options(-std=c++20 -Wall -Wextra -Wpedantic -Werror)
+set(CXX_FLAGS -std=c++20 -Wall -Wextra -Wpedantic -Werror)
 
-# Флаги для покрытия кода (активны только в Debug)
+set(LD_FLAGS "")
+set(DEBUG_CXX_FLAGS "")
+set(DEBUG_LD_FLAGS "")
+
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    add_compile_options(--coverage -fprofile-arcs -ftest-coverage -fsanitize=address -fsanitize=leak)
-    add_link_options(--coverage -fprofile-arcs -ftest-coverage -fsanitize=address -fsanitize=leak)
+    set(DEBUG_CXX_FLAGS ${DEBUG_CXX_FLAGS} --coverage -fprofile-arcs -ftest-coverage -fsanitize=address -fsanitize=leak)
+    set(DEBUG_LD_FLAGS ${DEBUG_LD_FLAGS} --coverage -fprofile-arcs -ftest-coverage -fsanitize=address -fsanitize=leak)
 endif()
 
 # Добавляем GoogleTest
@@ -25,21 +28,29 @@ FetchContent_MakeAvailable(googletest)
 
 # Добавляем библиотеку
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS src/*.cpp)
-add_library(my_lib ${SRC_FILES})
-target_include_directories(my_lib PUBLIC include)
 
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_link_libraries(my_lib PRIVATE asan)
+list(LENGTH SRC_FILES NUM_SRC_FILES)
+
+if(NUM_SRC_FILES GREATER 0)
+    add_library(my_lib ${SRC_FILES})
+    target_include_directories(my_lib PUBLIC include)
+    target_compile_options(my_lib PRIVATE ${CXX_FLAGS} ${DEBUG_CXX_FLAGS})
+    target_link_libraries(my_lib PRIVATE ${LD_FLAGS} ${DEBUG_LD_FLAGS})
 endif()
 
 # Создаём отдельный исполняемый файл для тестов
 file(GLOB_RECURSE TEST_FILES CONFIGURE_DEPENDS tests/*.cpp)
 add_executable(tests ${TEST_FILES})
-target_link_libraries(tests PRIVATE my_lib GTest::gtest_main)
 
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_link_libraries(tests PRIVATE asan)
+if(NUM_SRC_FILES GREATER 0)
+    target_link_libraries(tests PRIVATE my_lib GTest::gtest_main)
+else()
+    target_include_directories(tests PRIVATE include)
+    target_link_libraries(tests PRIVATE GTest::gtest_main)
 endif()
+
+target_compile_options(tests PRIVATE ${CXX_FLAGS} ${DEBUG_CXX_FLAGS})
+target_link_libraries(tests PRIVATE ${LD_FLAGS} ${DEBUG_LD_FLAGS})
 
 # Регистрируем тесты
 add_test(NAME MyTests COMMAND tests)
@@ -51,9 +62,9 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
     if(LCOV AND GENHTML)
         add_custom_target(coverage
-            COMMAND ${LCOV} --capture --directory . --ignore-errors mismatch --output-file coverage.info
-            COMMAND ${LCOV} --remove coverage.info /usr/* */googletest/* */tests/* --output-file coverage_filtered.info
-            COMMAND ${GENHTML} coverage_filtered.info --output-directory coverage_report
+            COMMAND ${LCOV} --rc branch_coverage=1 --capture --directory . --ignore-errors mismatch --output-file coverage.info
+            COMMAND ${LCOV} --rc branch_coverage=1 --remove coverage.info /usr/* */googletest/* */tests/* --output-file coverage_filtered.info
+            COMMAND ${GENHTML} --branch-coverage --highlight --legend coverage_filtered.info --output-directory coverage_report
             WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
             COMMENT "Генерация отчёта покрытия кода..."
             VERBATIM
@@ -68,7 +79,8 @@ find_program(CPPCHECK cppcheck)
 
 if(CPPCHECK)
     add_custom_target(cppcheck
-        COMMAND ${CPPCHECK} --enable=all --inconclusive --quiet --suppress=missingIncludeSystem -I include src test
+        COMMAND find ./ -type f -name *.cpp.gcda -delete
+        COMMAND ${CPPCHECK} --enable=all --inconclusive --suppress=missingIncludeSystem --suppress=checkersReport -I include src tests --std=c++20
         COMMENT "Запуск cppcheck..."
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         VERBATIM
