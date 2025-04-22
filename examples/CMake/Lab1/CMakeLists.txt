@@ -5,7 +5,7 @@ include(CTest)
 enable_testing()
 
 # Флаги компиляции
-add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+add_compile_options(-std=c++20 -Wall -Wextra -Wpedantic -Werror)
 
 # Флаги для покрытия кода (активны только в Debug)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
