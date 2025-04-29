@@ -126,7 +126,7 @@ public:
     bool operator<=(const BigInt& other) const;
     bool operator>=(const BigInt& other) const;
 
-    BigInt mod_exp(const BigInt& base, const BigInt& exp, const BigInt& mod) const;
+    BigInt mod_exp(const BigInt& exp, const BigInt& mod) const;
     BigInt fft_multiply(const BigInt& a) const;
     BigInt karatsuba_multiply(const BigInt& a) const;
     BigInt newton_divide(const BigInt& a) const;
