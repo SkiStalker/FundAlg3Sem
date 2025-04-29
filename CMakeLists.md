@@ -25,7 +25,7 @@ sudo apt install lcov cppcheck libgtest-dev cmake
     Флаг "-DCMAKE_BUILD_TYPE:STRING=Debug" нужен для включения отладочной информации в сборку. Без него coverage работать не будет;
 3. Собираете проект:
     ```bash
-    cmake --build build
+    cmake --build build -j$(nproc)
     ```
 4. Перемещаетесь в директорию с собранным исполняемым файлом тестов:
     ```bash
@@ -36,11 +36,15 @@ sudo apt install lcov cppcheck libgtest-dev cmake
     ./tests
     ```
 6. Убеждаетесь что все тесты прошли успешно;
-7. Генерируете анализ покрытия тестов:
+7. Проверяете код с помощью cppcheck:
     ```bash
-    cmake --build . --target coverage
+    cmake --build . --target cppcheck -j$(nproc)
     ```
-7. Проверяете что в папке coverage_report появился файл index.html:
+8. Генерируете анализ покрытия тестов:
+    ```bash
+    cmake --build . --target coverage -j$(nproc)
+    ```
+9. Проверяете что в папке coverage_report появился файл index.html:
     ```bash
     cat coverage_report/index.html > /dev/null
     ```
