@@ -1,0 +1,1 @@
+// MessageQueue class implementation
