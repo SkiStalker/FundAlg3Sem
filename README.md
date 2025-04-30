@@ -23,6 +23,7 @@
         2. [Системное программирование](#4_sem_sys_prog)
             1. [№1](#4_sem_sys_prog_1)
             2. [№2](#4_sem_sys_prog_2)
+            3. [№3](#4_sem_sys_prog_3)
 7. [Примеры](#примеры)
 
 ## Важные ссылки
@@ -110,6 +111,9 @@
 
 ##### <div id="4_sem_sys_prog_2">№2</div>
 [Файл](./SysProgramming/4Sem/2.md) с заданием. </br>
+
+##### <div id="4_sem_sys_prog_3">№3</div>
+[Файл](./SysProgramming/4Sem/3.md) с заданием. </br>
 
 ## Примеры
 - [С](./examples/C/)
